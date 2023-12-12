@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  min-height: 100%;
+  scrollbar-color: gray;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  background: transparent;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 4px;
+}
+
+.postToc li {
+  list-style-type: none;
+}
+
+.postToc > li > a {
+  font-weight: bold;
+  color: #b91c1c;
+}
+
+.postToc > ul > li > a {
+  font-weight: bold;
+}
