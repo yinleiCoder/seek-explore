@@ -11,6 +11,8 @@ body {
   min-height: 100%;
   scrollbar-color: gray;
   scrollbar-width: thin;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
