@@ -2,7 +2,7 @@
 
 import Button from '../button'
 import { MdDarkMode } from 'react-icons/md'
-import { IoSunny } from 'react-icons/io5'
+import { IoSunnyOutline } from 'react-icons/io5'
 import { useAppContext } from '@/context/appContext'
 import { THEME_DARK, THEME_LIGHT } from '@/constants/theme'
 import { ActionType } from '@/reducers/AppReducer'
@@ -16,7 +16,7 @@ export default function Theme() {
 
   return (
     <Button
-      icon={themeMode === THEME_DARK ? MdDarkMode : IoSunny}
+      icon={themeMode === THEME_DARK ? MdDarkMode : IoSunnyOutline}
       onClick={() => {
         dispatch({
           type: ActionType.UPDATE,

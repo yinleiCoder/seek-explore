@@ -13,13 +13,18 @@ import logo from '../../public/images/logo.png'
 
 const links = [
   {
-    name: '首页',
+    name: '随笔',
     href: '/',
     className: '',
   },
   {
-    name: '项目合作',
-    href: '/projects',
+    name: '时讯',
+    href: '/news',
+    className: '',
+  },
+  {
+    name: '照片',
+    href: '/photos',
     className: 'hidden md:block',
   },
   {
@@ -35,7 +40,7 @@ const links = [
   {
     name: '了解我',
     href: '/me',
-    className: '',
+    className: 'hidden md:block',
   },
 ]
 

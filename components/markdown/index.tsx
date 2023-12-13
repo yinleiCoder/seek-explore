@@ -3,6 +3,7 @@ import ReactMarkdown, { Options } from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkToc from 'remark-toc'
 import rehypeSlug from 'rehype-slug'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
@@ -14,16 +15,19 @@ function Markdown({ children, ...props }: Options) {
         [remarkGfm],
         [remarkToc, { tight: true, maxDepth: 5, ordered: true, prefix: '' }],
       ]}
-      rehypePlugins={[rehypeSlug]}
+      rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings]}
       components={{
+        pre(props) {
+          const { node, ...rest } = props
+          return <pre className="not-prose" {...rest} />
+        },
         code(props) {
           const { children, className, node, ...rest } = props
           const match = /language-(\w+)/.exec(className || '')
           return (
             <SyntaxHighlighter
-              PreTag="div"
+              PreTag={'div'}
               language={match ? match[1] : ''}
-              customStyle={{ padding: 0 }}
               style={atomDark}
               showLineNumbers
               showInlineLineNumbers

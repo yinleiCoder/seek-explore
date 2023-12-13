@@ -28,7 +28,10 @@ export default function PostPage({
   const post = getPostContent(slug)
   return (
     <main className="grid grid-cols-12">
-      <article className="prose prose-sm md:prose-base dark:prose-invert prose-img:rounded-lg prose-pre:p-0 prose-video:aspect-video prose-strong:text-indigo-500 prose-blockquote:border prose-blockquote:border-black prose-blockquote:shadow-md prose-blockquote:shadow-black/50 dark:prose-blockquote:border-gray-300 dark:prose-blockquote:shadow-md dark:prose-blockquote:shadow-indigo-500/50 prose-blockquote:rounded-lg p-2 md:p-3 lg:p-4 xl:p-5 mx-auto max-w-none col-start-1 col-span-12 lg:col-start-2 lg:col-span-7">
+      <article
+        className="prose prose-sm md:prose-base dark:prose-invert prose-a:no-underline prose-a:text-indigo-500 prose-a:after:content-['📦'] prose-img:rounded-lg
+       prose-video:aspect-video prose-strong:text-indigo-500 prose-blockquote:border prose-blockquote:border-black prose-blockquote:shadow-md prose-blockquote:shadow-black/50 dark:prose-blockquote:border-gray-300 dark:prose-blockquote:shadow-md dark:prose-blockquote:shadow-indigo-500/50 prose-blockquote:rounded-lg p-2 md:p-3 lg:p-4 xl:p-5 max-w-none col-start-1 col-span-12 lg:col-start-2 lg:col-span-7"
+      >
         <Markdown>{post.content ?? '文章待写...'}</Markdown>
       </article>
       <div className="hidden lg:col-start-9 lg:col-span-3 lg:flex lg:flex-col gap-5 py-5">
