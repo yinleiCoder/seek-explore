@@ -55,7 +55,7 @@ const links = [
   {
     name: '了解我',
     href: '/me',
-    className: '',
+    className: 'hidden md:inline-block',
   },
 ]
 
@@ -82,7 +82,7 @@ export default function Navbar() {
       <div className="col-start-1 col-span-1 md:col-span-2 flex items-center gap-1 justify-self-start">
         <Image src={logo} alt="寻寻觅觅" width={30} height={30} priority />
       </div>
-      <nav className="col-start-2 md:col-start-3 col-span-8 flex gap-2 md:gap-5 border rounded-full px-4 md:px-5 py-2 shadow-md dark:shadow-indigo-500 relative text-sm md:text-base">
+      <nav className="col-start-2 md:col-start-3 col-span-8 flex flex-nowrap gap-2 md:gap-5 md:px-5 py-2 relative text-sm md:text-base">
         {links.map(link => {
           return (
             <Link
