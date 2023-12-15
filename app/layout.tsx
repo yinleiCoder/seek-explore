@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import clsx from 'clsx'
 import Navbar from '@/components/navbar'
 import AppContextProvider from '@/context/appContext'
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </ThemeProvider>
         </AppContextProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
