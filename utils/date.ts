@@ -6,3 +6,10 @@ export const dateFormat = (
 ) => {
   return dayjs(date).format(format)
 }
+
+export const dateDiff = (
+  date1: string | number | Date | Dayjs,
+  date2: string | number | Date | Dayjs
+) => {
+  return dayjs(date1).diff(date2, 'second')
+}

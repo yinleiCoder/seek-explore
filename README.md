@@ -10,9 +10,12 @@
 
 ## Related
 
+- [React](https://react.dev/learn)
 - [Nextjs](https://nextjs.org/)
 - [TailwindCss](https://tailwindcss.com/)
 - [Framer Motion](https://www.framer.com/motion/use-spring/#usage)
+- [ECharts](https://echarts.apache.org/handbook/zh/get-started)
+- [Socket.IO](https://socket.io/zh-CN/)
 - [Prisma](https://www.prisma.io/)
 - [Firebase](https://firebase.google.com/?hl=zh-cn)
 - [Awesome React Components](https://github.com/brillout/awesome-react-components)

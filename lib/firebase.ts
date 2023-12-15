@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getAnalytics } from 'firebase/analytics'
+import { getAnalytics, isSupported } from 'firebase/analytics'
 import { getFirestore } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
 
@@ -18,9 +18,22 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
-// export const analytics = getAnalytics(app)
+
+async function getAnalyticsCustom() {
+  if (typeof window !== 'undefined') {
+    const support = await isSupported()
+    return support ? getAnalytics(app) : null
+  }
+  return null
+}
+
+// https://firebase.google.com/docs/analytics/get-started?platform=web&hl=zh-cn
+export const analytics = getAnalyticsCustom()
+
 // https://firebase.google.com/docs/firestore/quickstart?authuser=0#web-modular-api
 export const db = getFirestore(app)
+
 // https://firebase.google.com/docs/auth/web/start?authuser=0
 export const auth = getAuth(app)
+
 export default app

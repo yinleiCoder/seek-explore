@@ -5,9 +5,10 @@ import clsx from 'clsx'
 import Navbar from '@/components/navbar'
 import AppContextProvider from '@/context/appContext'
 import ThemeProvider from '@/provider/ThemeProvider'
+import ProgressBar from '@/components/progressbar'
+import Footer from '@/components/footer'
 import './globals.css'
 import 'react-loading-skeleton/dist/skeleton.css'
-import ProgressBar from '@/components/progressbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <ProgressBar />
               <Navbar />
               {children}
+              <Footer />
             </div>
             <Toaster />
           </ThemeProvider>
