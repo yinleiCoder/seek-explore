@@ -8,8 +8,9 @@ import { AiOutlineLogout } from 'react-icons/ai'
 import Theme from '../theme'
 import Button from '../button'
 import { useAppContext } from '@/context/appContext'
+import logo from '../../public/images/yinlei.png'
 import Image from 'next/image'
-import logo from '../../public/images/logo.png'
+import { motion } from 'framer-motion'
 
 const links = [
   {
@@ -25,12 +26,12 @@ const links = [
   {
     name: '照片',
     href: '/photos',
-    className: 'hidden md:block',
+    className: '',
   },
   {
     name: '开源软件',
     href: '/openSource',
-    className: 'hidden md:block',
+    className: 'hidden md:inline-block',
   },
   {
     name: '留言墙',
@@ -40,7 +41,7 @@ const links = [
   {
     name: '了解我',
     href: '/me',
-    className: 'hidden md:block',
+    className: 'hidden md:inline-block',
   },
 ]
 
@@ -62,39 +63,46 @@ export default function Navbar() {
   }
 
   return (
-    <header className="w-full h-[40px] flex items-center justify-between bg-transparent backdrop-blur dark:text-white duration-300 shadow px-2 md:px-5 gap-2 md:gap-3 lg:gap-4 xl:gap-5 box-border">
-      <div className="flex items-center gap-1">
-        <Image src={logo} width={25} height={25} priority alt="寻寻觅觅" />
-        <span className="text-xl font-bold">寻寻觅觅</span>
+    <header className="w-full h-[50px] grid grid-cols-12 place-items-center bg-transparent backdrop-blur dark:text-white duration-300 box-border z-40 px-2 py-2 md:px-5">
+      <div className="col-start-1 col-span-2 flex items-center gap-1 justify-self-start">
+        <Image src={logo} alt="寻寻觅觅" width={30} height={30} priority />
+        <span className="hidden md:inline-block text-lg font-bold">寻寻觅觅</span>
       </div>
-      <div className="flex-1 flex justify-end items-center gap-2 md:gap-3 lg:gap-4 xl:gap-5">
+      <nav className="col-start-3 col-span-8 flex gap-2 md:gap-5 border rounded-2xl px-4 md:px-5 py-1 shadow-md dark:shadow-indigo-500 relative">
         {links.map(link => {
           return (
             <Link
               key={link.name}
               href={link.href}
               className={clsx(link.className, {
-                'font-bold': pathname === link.href,
+                'text-indigo-500': pathname === link.href,
               })}
             >
               {link.name}
+              {pathname === link.href && (
+                <motion.div
+                  className="underline w-full h-[2px] bg-indigo-500 rounded-md"
+                  layoutId="underline"
+                />
+              )}
             </Link>
           )
         })}
+      </nav>
+      <div className="col-start-11 col-span-2 justify-self-end flex gap-2 md:gap-5">
         <Theme />
         {user ? (
           <>
-            <section className="flex gap-1 items-center bg-indigo-500 text-white px-1 py-1 rounded-md shadow-lg cursor-pointer">
-              <div>{user.displayName}</div>
+            <div className="">
               <img
                 src={user.photoURL!}
                 alt={user.displayName!}
-                className={'rounded-full w-[25px] h-[25px]'}
+                className={'rounded-full w-[30px] h-[30px] cursor-pointer'}
               />
-            </section>
-            <Button icon={AiOutlineLogout} onClick={handleLogoutByOAuth}>
+            </div>
+            {/* <Button icon={AiOutlineLogout} onClick={handleLogoutByOAuth}>
               退出登录
-            </Button>
+            </Button> */}
           </>
         ) : (
           <Button icon={CgBoy} onClick={handleLoginByOAuth} />

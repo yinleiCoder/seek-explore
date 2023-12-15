@@ -7,6 +7,7 @@ import AppContextProvider from '@/context/appContext'
 import ThemeProvider from '@/provider/ThemeProvider'
 import './globals.css'
 import 'react-loading-skeleton/dist/skeleton.css'
+import ProgressBar from '@/components/progressbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,16 +18,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className={clsx(
-          inter.className,
-          'bg-[rgba(255,246,223,0.5)] dark:bg-zinc-900 duration-300'
-        )}
-      >
+    <html lang="en" suppressHydrationWarning>
+      <body className={clsx(inter.className, 'bg-white dark:bg-zinc-900 duration-300')}>
         <AppContextProvider>
           <ThemeProvider>
-            <div className="min-h-screen flex flex-col">
+            <div className="container xl:max-w-7xl bg-white dark:bg-zinc-900 mx-auto duration-300 min-h-screen flex flex-col shadow-xl dark:shadow-indigo-500">
+              <ProgressBar />
               <Navbar />
               {children}
             </div>

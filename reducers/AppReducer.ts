@@ -4,7 +4,6 @@ import { THEME_DARK, THEME_LIGHT } from '../constants/theme'
 type Theme = 'dark' | 'light'
 
 export type State = {
-  themeMode: Theme
   user: User | null
 }
 
@@ -22,7 +21,6 @@ export type Action = UpdateAction
 
 // useReducer initState
 export const initState: State = {
-  themeMode: THEME_LIGHT,
   user: null,
 }
 

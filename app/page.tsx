@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <>
       <Banner />
-      <Marquee className="w-full h-[30px] bg-zinc-900 dark:bg-zinc-800 py-1 text-white font-bold text-sm">
+      <Marquee className="h-[30px] bg-zinc-900 dark:bg-zinc-800 py-1 text-white font-bold text-sm">
         {newsMarquee.map((item, index) => {
           return (
             <span className="mx-10" key={index}>
