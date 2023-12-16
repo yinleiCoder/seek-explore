@@ -1,7 +1,8 @@
 import Banner from '@/components/banner'
 import CardList from '@/components/list'
 import Marquee from '@/components/marquee'
-import { getPostMetaData } from '@/lib/post'
+import Subscribe from '@/components/subscribe'
+import { getAllPosts } from '@/lib/post'
 
 export default function HomePage() {
   const newsMarquee = [
@@ -9,7 +10,7 @@ export default function HomePage() {
     '[2023年上半年]尹磊编制进面3次:德阳中江事业单位、雅安汉源教师、三台特岗教师综合第二名遗憾落榜',
     '[2023年1月]沉痛悼念大爷爷尹才兴，长者驾鹤西去、与世长辞',
   ]
-  const posts = getPostMetaData()
+  const posts = getAllPosts(['title', 'description', 'date', 'slug'])
   return (
     <>
       <Banner />
@@ -23,6 +24,9 @@ export default function HomePage() {
         })}
       </Marquee>
       <CardList posts={posts} />
+      <div className="px-3">
+        <Subscribe />
+      </div>
     </>
   )
 }

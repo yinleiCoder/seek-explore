@@ -11,6 +11,7 @@ import ProgressBar from '@/components/progressbar'
 import Footer from '@/components/footer'
 import './globals.css'
 import 'react-loading-skeleton/dist/skeleton.css'
+import BackTop from '@/components/top'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {children}
               <Footer />
             </div>
+            <BackTop />
             <Toaster />
           </ThemeProvider>
         </AppContextProvider>

@@ -1,16 +1,17 @@
+import Comment from '@/components/comment'
 import Markdown from '@/components/markdown'
-import { getPostContent, getPostMetaData } from '@/lib/post'
+import { getPostBySlug, getPostSlugs } from '@/lib/post'
 import { dateFormat } from '@/utils/date'
 
 export const generateStaticParams = async () => {
-  const posts = getPostMetaData()
-  return posts.map(post => {
-    slug: post.slug
+  const slugs = getPostSlugs()
+  return slugs.map(item => {
+    slug: item
   })
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = getPostContent(params.slug)
+  const post = getPostBySlug(params.slug, ['title', 'description'])
   return {
     title: post.title,
     description: post.description,
@@ -25,7 +26,7 @@ export default function PostPage({
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
   const slug = params.slug
-  const post = getPostContent(slug)
+  const post = getPostBySlug(slug, ['title', 'description', 'date', 'tag', 'content'])
   return (
     <>
       <main className="grid p-2 md:p-5 grid-cols-12 lg:gap-5">
@@ -39,17 +40,15 @@ export default function PostPage({
           <div className="bg-indigo-500 text-white p-2 shadow-lg shadow-indigo-500/50 rounded-md flex flex-col gap-2">
             <p className="font-bold">{post.title}</p>
             <p className="text-sm">{post.description}</p>
-            <p className="text-sm">{dateFormat(post.date)}</p>
+            <p className="text-sm">{dateFormat(post.date ?? new Date())}</p>
             <span className="border rounded-md text-center text-sm">{post.tag}</span>
-            <div className="flex justify-between">
-              <span className="text-sm">{post.duration} min read</span>
-              <span className="text-sm">{post.word} 字</span>
-            </div>
           </div>
           <div className="bg-white dark:bg-zinc-800 p-2 shadow-md rounded-md">google广告</div>
         </div>
       </main>
-      <div className="p-2 border-t bg-indigo-500">评论系统待做</div>
+      <div className="p-2">
+        <Comment />
+      </div>
     </>
   )
 }

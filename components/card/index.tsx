@@ -3,12 +3,12 @@
 import { Post } from '@/types/post'
 import { dateFormat } from '@/utils/date'
 import { useScroll, motion, useTransform } from 'framer-motion'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import Link from 'next/link'
 import { analytics } from '@/lib/firebase'
 import { logEvent } from 'firebase/analytics'
 
-export default function Card({ title, description, word, date, slug }: Post) {
+export default function Card({ title, description, date, slug }: Post) {
   const cardRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: cardRef,
@@ -41,13 +41,9 @@ export default function Card({ title, description, word, date, slug }: Post) {
       >
         <h1 className="text-lg md:text-xl font-bold">{title}</h1>
         <span className="text-gray-500 group-hover:text-white duration-300">
-          {dateFormat(date)}
+          {dateFormat(date ?? new Date())}
         </span>
         <p>{description}</p>
-        <div className="flex justify-between text-sm text-gray-400 group-hover:text-white duration-300">
-          <span></span>
-          <span>{word}字</span>
-        </div>
       </motion.div>
     </Link>
   )

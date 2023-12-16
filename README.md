@@ -17,6 +17,7 @@
 - [ECharts](https://echarts.apache.org/handbook/zh/get-started)
 - [Socket.IO](https://socket.io/zh-CN/)
 - [Prisma](https://www.prisma.io/)
+- [UpStash Redis](https://console.upstash.com/redis/4f8625b0-85cb-4a35-9e2d-b7c84e9a33fc)
 - [Firebase](https://firebase.google.com/?hl=zh-cn)
 - [Awesome React Components](https://github.com/brillout/awesome-react-components)
 - [Vercel](https://vercel.com/yinlei/seek-explore)

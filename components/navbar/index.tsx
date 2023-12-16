@@ -38,11 +38,6 @@ const links = [
     className: 'hidden md:inline-block',
   },
   {
-    name: '协同绘画',
-    href: '/draw',
-    className: 'hidden md:inline-block',
-  },
-  {
     name: '开源软件',
     href: '/openSource',
     className: 'hidden md:inline-block',
@@ -127,9 +122,9 @@ export default function Navbar() {
                 className={'rounded-full w-[35px] h-[35px] cursor-pointer border-black border-2'}
               />
             </div>
-            {/* <Button icon={AiOutlineLogout} onClick={handleLogoutByOAuth}>
+            <Button icon={AiOutlineLogout} onClick={handleLogoutByOAuth}>
               退出登录
-            </Button> */}
+            </Button>
           </>
         ) : (
           <Button icon={CgBoy} onClick={handleLoginByOAuth} />
