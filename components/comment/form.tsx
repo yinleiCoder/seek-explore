@@ -9,6 +9,7 @@ import clsx from 'clsx'
 import { FormEvent } from 'react'
 import { User } from '@/types/user'
 import Emoji from '../emoji'
+import toast from 'react-hot-toast'
 
 type CommentFormProps = {
   text: string
@@ -25,6 +26,12 @@ export default function CommentForm({ text, setText, onSubmit }: CommentFormProp
   function handleAddComment(e: FormEvent) {
     e.preventDefault()
     if (!user) return
+    if (text.length === 0) {
+      toast('亲，评论内容不能为空哦~', {
+        icon: '😚',
+      })
+      return
+    }
     const commentOfUser: User = {
       uid: user.uid,
       displayName: user.displayName ?? '',
@@ -50,7 +57,7 @@ export default function CommentForm({ text, setText, onSubmit }: CommentFormProp
           setText(e.target.value)
         }}
         disabled={!user}
-        className={clsx('w-full bg-zinc-100 outline-none px-4 py-3 rounded-lg', {
+        className={clsx('w-full bg-zinc-100 outline-none px-4 py-3 rounded-lg dark:bg-zinc-800', {
           'cursor-not-allowed': !user,
         })}
       />
@@ -74,7 +81,7 @@ export default function CommentForm({ text, setText, onSubmit }: CommentFormProp
               icon={CiLock}
               onClick={handleLoginByOAuth}
             >
-              登录后参与讨论
+              Google账户登录方可参与讨论
             </Button>
           </>
         )}

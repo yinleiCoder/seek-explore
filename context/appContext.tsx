@@ -18,6 +18,7 @@ import {
   useMemo,
   useReducer,
 } from 'react'
+import toast from 'react-hot-toast'
 
 type AppContextProps = {
   state: State
@@ -59,6 +60,29 @@ export default function AppContextProvider({ children }: { children: ReactNode }
         field: 'user',
         value: user,
       })
+      toast.custom(t => (
+        <div
+          className={`${
+            t.visible ? 'animate-enter' : 'animate-leave'
+          } max-w-md bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5 p-3`}
+        >
+          <div className="flex-1 w-0 p-4">
+            <div className="flex items-start gap-2">
+              <div className="flex-shrink-0 pt-0.5">
+                <img
+                  className="h-10 w-10 rounded-full"
+                  src={user.photoURL}
+                  alt={user.displayName}
+                />
+              </div>
+              <div className="ml-3 flex-1">
+                <p className="font-medium text-gray-900">{user.displayName}</p>
+                <p className="mt-1 text-sm text-gray-500">欢迎亲亲访问本站~</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
     } catch (err) {
       console.error(err)
     }

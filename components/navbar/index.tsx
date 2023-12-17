@@ -74,16 +74,16 @@ export default function Navbar() {
 
   return (
     <header className="w-full h-16 grid grid-cols-12 place-items-center bg-transparent backdrop-blur dark:text-white duration-300 box-border z-40 px-2 py-2 md:px-5">
-      <div className="col-start-1 col-span-1 md:col-span-2 flex items-center gap-1 justify-self-start">
+      <div className="hidden md:flex md:col-span-2 md:items-center md:gap-1 md:justify-self-start">
         <Image src={logo} alt="寻寻觅觅" width={30} height={30} priority />
       </div>
-      <nav className="col-start-2 md:col-start-3 col-span-8 flex flex-nowrap gap-2 md:gap-5 md:px-5 py-2 relative text-sm md:text-base">
+      <nav className="col-start-1 md:col-start-3 col-span-9 md:col-span-8 flex flex-nowrap gap-2 md:gap-5 md:px-5 py-2 relative text-sm md:text-base">
         {links.map(link => {
           return (
             <Link
               key={link.name}
               href={link.href}
-              className={clsx(link.className, {
+              className={clsx(link.className, 'hover:bg-indigo-200 px-[2px] py-[1px] rounded-md', {
                 'text-indigo-500': pathname === link.href,
               })}
             >
@@ -127,7 +127,11 @@ export default function Navbar() {
             </Button>
           </>
         ) : (
-          <Button icon={CgBoy} onClick={handleLoginByOAuth} />
+          <Button
+            icon={CgBoy}
+            onClick={handleLoginByOAuth}
+            className="hover:bg-zinc-200 text-xl p-2 rounded-md"
+          />
         )}
       </div>
     </header>
