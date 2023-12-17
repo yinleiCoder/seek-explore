@@ -19,6 +19,7 @@ type CommentFormProps = {
 export default function CommentForm({ text, setText, onSubmit }: CommentFormProps) {
   const {
     state: { user },
+    googleSignIn,
   } = useAppContext()
 
   function handleAddComment(e: FormEvent) {
@@ -32,6 +33,10 @@ export default function CommentForm({ text, setText, onSubmit }: CommentFormProp
       photoURL: user.photoURL ?? '',
     }
     onSubmit(e, commentOfUser)
+  }
+
+  const handleLoginByOAuth = async () => {
+    await googleSignIn()
   }
 
   return (
@@ -67,6 +72,7 @@ export default function CommentForm({ text, setText, onSubmit }: CommentFormProp
             <Button
               className="bg-red-700 text-white px-4 py-1 duration-300 hover:bg-red-600"
               icon={CiLock}
+              onClick={handleLoginByOAuth}
             >
               登录后参与讨论
             </Button>

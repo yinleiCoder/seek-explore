@@ -10,7 +10,7 @@ import { useState } from 'react'
 export default function Emoji({ onSelect }: { onSelect: Function }) {
   const [isPickerVisible, setPickerVisible] = useState(false)
   return (
-    <div>
+    <div className="relative">
       <Button
         icon={AiTwotoneSmile}
         className="hover:bg-zinc-200"
@@ -22,7 +22,7 @@ export default function Emoji({ onSelect }: { onSelect: Function }) {
         }}
       />
       <div
-        className={clsx('', {
+        className={clsx('absolute top-[100%] left-0 z-40', {
           'hidden duration-300': !isPickerVisible,
           'block duration-300': isPickerVisible,
         })}

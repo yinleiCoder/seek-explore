@@ -1,6 +1,7 @@
 import { Comment } from '@/types/comment'
 import { User } from '@/types/user'
 import { useState } from 'react'
+import toast from 'react-hot-toast'
 import useSWR from 'swr'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
@@ -28,10 +29,12 @@ export default function useComments(token = '') {
           Authorization: token,
         },
       })
+      toast.success('已评论')
       setText('')
       await mutate()
     } catch (err) {
       console.error(err)
+      toast.error(`${err}`)
     }
   }
 
