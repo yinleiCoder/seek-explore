@@ -1,9 +1,9 @@
-import { User } from 'firebase/auth'
+import { User } from './user'
 
 export type Comment = {
   id: string
-  created_at: number
-  url: string
+  post_slug: string
   text: string
   user: User
+  created_at: number
 }

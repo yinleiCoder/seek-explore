@@ -1,10 +1,9 @@
 import { User } from 'firebase/auth'
-import { THEME_DARK, THEME_LIGHT } from '../constants/theme'
-
-type Theme = 'dark' | 'light'
 
 export type State = {
   user: User | null
+  token: string | null
+  idToken: string | null
 }
 
 export enum ActionType {
@@ -22,6 +21,8 @@ export type Action = UpdateAction
 // useReducer initState
 export const initState: State = {
   user: null,
+  token: '',
+  idToken: '',
 }
 
 // useReducer

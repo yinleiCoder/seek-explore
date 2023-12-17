@@ -1,8 +1,14 @@
 'use client'
 
-import { auth } from '@/lib/firebase'
+import { auth } from '@/lib/firebase/firebase'
 import { Action, ActionType, State, initState, reducer } from '@/reducers/AppReducer'
-import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth'
+import {
+  GoogleAuthProvider,
+  getIdToken,
+  onAuthStateChanged,
+  signInWithPopup,
+  signOut,
+} from 'firebase/auth'
 import {
   Dispatch,
   ReactNode,
@@ -32,7 +38,27 @@ export default function AppContextProvider({ children }: { children: ReactNode }
   const googleSignIn = async () => {
     try {
       const provider = new GoogleAuthProvider()
-      await signInWithPopup(auth, provider)
+      const result = await signInWithPopup(auth, provider)
+      const credential = GoogleAuthProvider.credentialFromResult(result)
+      const token = credential!.accessToken
+      dispatch({
+        type: ActionType.UPDATE,
+        field: 'token',
+        value: token,
+      })
+      // idToken which firebase admin sdk to verify user at custom nextjs app router handle
+      const idToken = await result.user.getIdToken(true)
+      dispatch({
+        type: ActionType.UPDATE,
+        field: 'idToken',
+        value: idToken,
+      })
+      const user = result.user
+      dispatch({
+        type: ActionType.UPDATE,
+        field: 'user',
+        value: user,
+      })
     } catch (err) {
       console.error(err)
     }
@@ -45,12 +71,26 @@ export default function AppContextProvider({ children }: { children: ReactNode }
         field: 'user',
         value: currentUser,
       })
+      if (!state.idToken && auth.currentUser) {
+        getIdToken(auth.currentUser).then(token => {
+          dispatch({
+            type: ActionType.UPDATE,
+            field: 'idToken',
+            value: token,
+          })
+        })
+      }
     })
     return () => unsubscribe()
-  }, [state.user])
+  }, [state.user, state.idToken])
 
   const googleSignOut = async () => {
     await signOut(auth)
+    dispatch({
+      type: ActionType.UPDATE,
+      field: 'token',
+      value: '',
+    })
   }
 
   const contextValue = useMemo(() => {

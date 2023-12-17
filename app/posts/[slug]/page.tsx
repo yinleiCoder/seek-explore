@@ -36,14 +36,16 @@ export default function PostPage({
         >
           <Markdown>{post.content ?? '文章待写...'}</Markdown>
         </article>
-        <div className="hidden lg:col-start-9 lg:col-span-4 lg:flex lg:flex-col gap-5 py-5">
+        <div className="hidden lg:col-start-9 lg:col-span-4 lg:flex lg:flex-col gap-5">
           <div className="bg-indigo-500 text-white p-2 shadow-lg shadow-indigo-500/50 rounded-md flex flex-col gap-2">
             <p className="font-bold">{post.title}</p>
             <p className="text-sm">{post.description}</p>
             <p className="text-sm">{dateFormat(post.date ?? new Date())}</p>
             <span className="border rounded-md text-center text-sm">{post.tag}</span>
           </div>
-          <div className="bg-white dark:bg-zinc-800 p-2 shadow-md rounded-md">google广告</div>
+          <div className="bg-white dark:bg-zinc-800 p-2 shadow-md rounded-md">
+            google广告暂待接入
+          </div>
         </div>
       </main>
       <div className="p-2">

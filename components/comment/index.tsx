@@ -2,13 +2,18 @@
 
 import useComments from '@/hooks/useComment'
 import CommentForm from './form'
+import { useAppContext } from '@/context/appContext'
+import CommentList from './list'
 
 export default function Comment() {
-  const { text, setText, comments, onSubmit, onDelete } = useComments()
+  const {
+    state: { idToken },
+  } = useAppContext()
+  const { text, setText, comments, onSubmit, onDelete } = useComments(idToken ?? '')
   return (
     <div className="max-w-3xl mx-auto">
       <CommentForm onSubmit={onSubmit} text={text} setText={setText} />
-      {/* <CommentList comments={comments} onDelete={onDelete} /> */}
+      <CommentList comments={comments} onDelete={onDelete} />
     </div>
   )
 }

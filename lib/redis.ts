@@ -24,7 +24,7 @@ class ClientRedis {
 
   static getInstance(): Redis | null {
     if (!ClientRedis.instance) {
-      ClientRedis.instance = new IORedis(fixUrl(process.env.REDIS_URL!))
+      ClientRedis.instance = new IORedis(process.env.REDIS_URL!)
     }
     return ClientRedis.instance
   }

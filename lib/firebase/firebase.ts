@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app'
+import { getApps, initializeApp } from 'firebase/app'
 import { getAnalytics, isSupported } from 'firebase/analytics'
 import { getFirestore } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
@@ -17,7 +17,7 @@ const firebaseConfig = {
 }
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig)
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0]
 
 async function getAnalyticsCustom() {
   if (typeof window !== 'undefined') {

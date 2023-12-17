@@ -5,7 +5,7 @@ import { dateFormat } from '@/utils/date'
 import { useScroll, motion, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import Link from 'next/link'
-import { analytics } from '@/lib/firebase'
+import { analytics } from '@/lib/firebase/firebase'
 import { logEvent } from 'firebase/analytics'
 
 export default function Card({ title, description, date, slug }: Post) {

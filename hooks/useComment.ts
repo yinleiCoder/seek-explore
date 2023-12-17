@@ -1,4 +1,5 @@
 import { Comment } from '@/types/comment'
+import { User } from '@/types/user'
 import { useState } from 'react'
 import useSWR from 'swr'
 
@@ -7,7 +8,7 @@ const fetcher = (url: string) => fetch(url).then(res => res.json())
 /**
  * swr: https://swr.vercel.app/docs/advanced/understanding
  */
-export default function useComments() {
+export default function useComments(token = '') {
   const [text, setText] = useState('')
 
   // get comment
@@ -16,14 +17,15 @@ export default function useComments() {
   })
 
   // add comment
-  const onSubmit = async (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent, user: User) => {
     e.preventDefault()
     try {
       await fetch('/api/comment', {
         method: 'POST',
-        body: JSON.stringify({ text }),
+        body: JSON.stringify({ text, user }),
         headers: {
           'Content-Type': 'application/json',
+          Authorization: token,
         },
       })
       setText('')
@@ -40,6 +42,7 @@ export default function useComments() {
         method: 'DELETE',
         body: JSON.stringify({ comment }),
         headers: {
+          Authorization: token,
           'Content-Type': 'application/json',
         },
       })

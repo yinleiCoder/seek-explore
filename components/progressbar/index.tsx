@@ -12,7 +12,7 @@ export default function ProgressBar() {
   })
   return (
     <motion.div
-      className="w-screen h-[2px] bg-indigo-500 rounded fixed top-0 left-0 right-0 z-50"
+      className="w-screen h-[2px] bg-indigo-500 rounded fixed top-0 left-0 right-0 z-50 shadow-lg shadow-indigo-500"
       style={{ scaleX }}
     />
   )
