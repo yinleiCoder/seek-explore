@@ -71,8 +71,8 @@ export default function AppContextProvider({ children }: { children: ReactNode }
               <div className="flex-shrink-0 pt-0.5">
                 <img
                   className="h-10 w-10 rounded-full"
-                  src={user.photoURL}
-                  alt={user.displayName}
+                  src={user.photoURL ?? ''}
+                  alt={user.displayName ?? ''}
                 />
               </div>
               <div className="ml-3 flex-1">

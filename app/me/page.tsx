@@ -1,7 +1,13 @@
+import dynamic from 'next/dynamic'
+
+const Pixel = dynamic(() => import('../../components/pixel'), {
+  ssr: false,
+})
+
 export default function MePage() {
   return (
-    <div>
-      <div className="bg-red-300 w-10 mx-auto">me me me</div>
+    <div className="flex flex-col">
+      <Pixel />
     </div>
   )
 }
