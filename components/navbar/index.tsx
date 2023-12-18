@@ -74,10 +74,7 @@ export default function Navbar() {
 
   return (
     <header className="w-full h-16 grid grid-cols-12 place-items-center bg-transparent backdrop-blur dark:text-white duration-300 box-border z-40 px-2 py-2 md:px-5">
-      <div className="hidden md:flex md:col-span-2 md:items-center md:gap-1 md:justify-self-start">
-        <Image src={logo} alt="寻寻觅觅" width={30} height={30} priority />
-      </div>
-      <nav className="col-start-1 md:col-start-3 col-span-9 md:col-span-8 flex flex-nowrap gap-2 md:gap-5 md:px-5 py-2 relative text-sm md:text-base">
+      <nav className="col-start-1 col-end-9 flex flex-nowrap gap-2 md:gap-5 md:px-5 py-2 relative text-sm md:text-base justify-self-start">
         {links.map(link => {
           return (
             <Link
@@ -98,7 +95,7 @@ export default function Navbar() {
           )
         })}
       </nav>
-      <div className="col-start-10 col-span-3 md:col-start-11 md:col-span-2 justify-self-end flex gap-2 md:gap-5 items-center">
+      <div className="col-start-9 col-end-13 justify-self-end flex gap-2 md:gap-5 items-center">
         <div
           id="theme-toggle"
           className="flex items-center justify-center p-2 rounded-full border dark:border-gray-500 box-border hover:bg-zinc-100 dark:hover:bg-zinc-800 duration-300"

@@ -37,14 +37,14 @@ export default function Subscribe() {
         <input
           type="email"
           className="flex-1 px-3 py-2 rounded-md outline-none bg-zinc-100 dark:bg-zinc-800"
-          placeholder="你的邮箱"
+          placeholder="Your email..."
           value={email}
           onChange={e => {
             setEmail(e.target.value)
           }}
         />
-        <Button className="bg-indigo-500 px-3 py-1 text-white hover:bg-indigo-400 duration-300 rounded-md hover:shadow-md">
-          订阅
+        <Button className="bg-indigo-500 px-3 py-1 text-white hover:bg-indigo-400 duration-300 rounded-md hover:shadow-md flex-nowrap">
+          Subscribe
         </Button>
       </div>
     </div>

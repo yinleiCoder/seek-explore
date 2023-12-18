@@ -11,7 +11,7 @@ export default function Comment() {
   } = useAppContext()
   const { text, setText, comments, onSubmit, onDelete } = useComments(idToken ?? '')
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="w-full">
       <CommentForm onSubmit={onSubmit} text={text} setText={setText} />
       <CommentList comments={comments} onDelete={onDelete} />
     </div>

@@ -2,6 +2,7 @@ import Comment from '@/components/comment'
 import Markdown from '@/components/markdown'
 import { getPostBySlug, getPostSlugs } from '@/lib/post'
 import { dateFormat } from '@/utils/date'
+import Image from 'next/image'
 
 export const generateStaticParams = async () => {
   const slugs = getPostSlugs()
@@ -30,22 +31,39 @@ export default function PostPage({
   return (
     <>
       <main className="grid p-2 md:p-5 grid-cols-12 gap-y-5">
-        <div className="bg-indigo-500 text-white p-2 shadow-lg shadow-indigo-500/50 rounded-md flex flex-col gap-2 col-start-1 col-end-13">
-          <p className="font-bold">{post.title}</p>
-          <p className="text-sm">{post.description}</p>
-          <p className="text-sm">{dateFormat(post.date ?? new Date())}</p>
-          <span className="border rounded-md text-center text-sm">{post.tag}</span>
+        <div className="col-start-1 col-end-13 md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11 flex gap-3 items-center">
+          <Image
+            src={'/images/author.jpg'}
+            width={50}
+            height={50}
+            alt="author yinlei"
+            className="rounded-full"
+          />
+          <div className="flex flex-col justify-start gap-1">
+            <p className="font-bold text-lg">Yin Lei</p>
+            <div className="flex text-sm gap-1 text-gray-500">
+              <span>{dateFormat(post.date ?? '')}</span>
+              <span>/</span>
+              <span>{post.tag}</span>
+            </div>
+          </div>
+        </div>
+        <div className="col-start-1 col-end-13 md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11 flex flex-col items-start gap-1">
+          <h1 className="text-2xl font-bold">{post.title}</h1>
+          <p className="text-gray-600 dark:text-gray-300">{post.description}</p>
+          <div className="h-[1px] border  w-full rounded"></div>
         </div>
         <article
-          className="prose prose-sm md:prose-base dark:prose-invert prose-a:no-underline prose-a:text-indigo-500 prose-a:after:content-['📦'] prose-headings:scroll-mt-5 prose-img:rounded-lg
-       prose-video:aspect-video prose-strong:text-indigo-500 prose-blockquote:border prose-blockquote:border-black prose-blockquote:shadow-md prose-blockquote:shadow-black/50 dark:prose-blockquote:border-gray-300 dark:prose-blockquote:shadow-md dark:prose-blockquote:shadow-indigo-500/50 prose-blockquote:rounded-lg max-w-none col-start-1 col-end-13 lg:col-start-2 lg:col-end-12"
+          className="prose prose-sm md:prose-base dark:prose-invert prose-a:no-underline prose-a:text-indigo-500 prose-a:after:content-['📦'] prose-headings:scroll-mt-5 prose-img:rounded-lg prose-img:aspect-video
+          prose-img:object-cover
+       prose-video:aspect-video prose-strong:text-indigo-500 prose-blockquote:border prose-blockquote:border-black prose-blockquote:shadow-md prose-blockquote:shadow-black/50 dark:prose-blockquote:border-gray-300 dark:prose-blockquote:shadow-md dark:prose-blockquote:shadow-indigo-500/50 prose-blockquote:rounded-lg max-w-none col-start-1 col-end-13 md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11"
         >
           <Markdown>{post.content ?? '文章待写...'}</Markdown>
         </article>
+        <div className="col-start-1 col-end-13 md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11">
+          <Comment />
+        </div>
       </main>
-      <div className="p-2">
-        <Comment />
-      </div>
     </>
   )
 }

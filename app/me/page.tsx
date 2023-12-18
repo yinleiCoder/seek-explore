@@ -7,7 +7,9 @@ const Pixel = dynamic(() => import('../../components/pixel'), {
 export default function MePage() {
   return (
     <div className="flex flex-col">
-      <Pixel />
+      <Pixel>
+        <p>写好每一个像素</p>
+      </Pixel>
     </div>
   )
 }

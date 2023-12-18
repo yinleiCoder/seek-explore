@@ -7,11 +7,11 @@ import clsx from 'clsx'
 import Navbar from '@/components/navbar'
 import AppContextProvider from '@/context/appContext'
 import ThemeProvider from '@/provider/ThemeProvider'
+import BackTop from '@/components/top'
 import ProgressBar from '@/components/progressbar'
 import Footer from '@/components/footer'
 import './globals.css'
 import 'react-loading-skeleton/dist/skeleton.css'
-import BackTop from '@/components/top'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,18 +24,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={clsx(inter.className, 'bg-white dark:bg-zinc-900 duration-300')}>
+        <ProgressBar />
         <AppContextProvider>
           <ThemeProvider>
-            <div className="container xl:max-w-7xl bg-white dark:bg-zinc-900 mx-auto duration-300 min-h-screen flex flex-col shadow-xl dark:shadow-indigo-500">
-              <ProgressBar />
+            <div className="w-full duration-300 min-h-screen flex flex-col">
               <Navbar />
               {children}
               <Footer />
             </div>
-            <BackTop />
             <Toaster />
           </ThemeProvider>
         </AppContextProvider>
+        <BackTop />
         <Analytics />
         <SpeedInsights />
       </body>

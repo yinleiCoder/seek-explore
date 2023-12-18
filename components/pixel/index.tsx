@@ -8,7 +8,7 @@ type Size = {
   height: number
 }
 
-export default function Pixel() {
+export default function Pixel({ children }: { children: React.ReactNode }) {
   const { width: windowWidth, height: windowHeight } = useSize(
     document.querySelector('body')
   ) as Size
@@ -58,8 +58,7 @@ export default function Pixel() {
   return (
     <main className="h-screen w-full flex justify-center items-center bg-white relative overflow-hidden">
       <div className="w-[70%] uppercase text-[4vw] font-extrabold text-center mix-blend-difference text-white z-10 pointer-events-none">
-        <p>有缘之人</p>
-        <p>可以逆转时光，回到过去</p>
+        {children}
       </div>
       <div className="absolute w-full h-full flex left-0 top-0 bottom-0">
         {[...Array(20).keys()].map((_, index) => (
