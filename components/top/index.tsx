@@ -28,7 +28,7 @@ export default function BackTop() {
   }
   return (
     <div
-      className={clsx('fixed right-5 bottom-7', {
+      className={clsx('fixed right-5 bottom-7 z-50', {
         hidden: !show,
         block: show,
       })}

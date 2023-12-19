@@ -24,6 +24,7 @@ export default function Banner() {
     'C',
     'C++',
     'JavaScript',
+    'NodeJS',
     'Vue',
     'React',
     'Python',

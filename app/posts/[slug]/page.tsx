@@ -3,6 +3,7 @@ import Markdown from '@/components/markdown'
 import { getPostBySlug, getPostSlugs } from '@/lib/post'
 import { dateFormat } from '@/utils/date'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const generateStaticParams = async () => {
   const slugs = getPostSlugs()
@@ -32,13 +33,15 @@ export default function PostPage({
     <>
       <main className="grid p-2 md:p-5 grid-cols-12 gap-y-5">
         <div className="col-start-1 col-end-13 md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11 flex gap-3 items-center">
-          <Image
-            src={'/images/author.jpg'}
-            width={50}
-            height={50}
-            alt="author yinlei"
-            className="rounded-full"
-          />
+          <Link href={'/me'}>
+            <Image
+              src={'/images/author.jpg'}
+              width={50}
+              height={50}
+              alt="author yinlei"
+              className="rounded-full"
+            />
+          </Link>
           <div className="flex flex-col justify-start gap-1">
             <p className="font-bold text-lg">Yin Lei</p>
             <div className="flex text-sm gap-1 text-gray-500">
@@ -54,9 +57,9 @@ export default function PostPage({
           <div className="h-[1px] border  w-full rounded"></div>
         </div>
         <article
-          className="prose prose-sm md:prose-base dark:prose-invert prose-a:no-underline prose-a:text-indigo-500 prose-a:after:content-['📦'] prose-headings:scroll-mt-5 prose-img:rounded-lg prose-img:aspect-video
+          className="prose prose-sm md:prose-base dark:prose-invert prose-a:no-underline prose-a:text-indigo-500 prose-a:after:content-['📦'] prose-headings:scroll-mt-5 prose-img:rounded-lg
           prose-img:object-cover
-       prose-video:aspect-video prose-strong:text-indigo-500 prose-blockquote:border prose-blockquote:border-black prose-blockquote:shadow-md prose-blockquote:shadow-black/50 dark:prose-blockquote:border-gray-300 dark:prose-blockquote:shadow-md dark:prose-blockquote:shadow-indigo-500/50 prose-blockquote:rounded-lg max-w-none col-start-1 col-end-13 md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11"
+       prose-video:aspect-video prose-strong:text-indigo-500 prose-table:border prose-thread:!rounded-md prose-thead:bg-indigo-700 hover:prose-tr:bg-indigo-300 dark:hover:prose-tr:bg-indigo-400 dark:prose-thead:bg-zinc-800 prose-thead:rounded-md prose-th:text-white prose-blockquote:border prose-blockquote:border-black prose-blockquote:shadow-md prose-blockquote:shadow-black/50 dark:prose-blockquote:border-gray-300 dark:prose-blockquote:shadow-md dark:prose-blockquote:shadow-indigo-500/50 prose-blockquote:rounded-lg max-w-none col-start-1 col-end-13 md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11"
         >
           <Markdown>{post.content ?? '文章待写...'}</Markdown>
         </article>

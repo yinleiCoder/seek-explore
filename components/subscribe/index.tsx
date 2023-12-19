@@ -27,7 +27,7 @@ export default function Subscribe() {
         <h1 className="text-base animate-pulse">动态更新</h1>
       </div>
       <p className="flex items-center gap-1 text-sm flex-wrap">
-        亲爱的<span className="font-bold text-indigo-500 mx-1">{user?.displayName ?? '朋友'}</span>,
+        亲爱的<span className="font-bold text-indigo-500 mx-1">{user?.displayName ?? '朋友'},</span>
         如果喜欢我的文章，不妨订阅支持一下 <CgGirl />
       </p>
       <p className="text-sm text-gray-500">
@@ -43,8 +43,8 @@ export default function Subscribe() {
             setEmail(e.target.value)
           }}
         />
-        <Button className="bg-indigo-500 px-3 py-1 text-white hover:bg-indigo-400 duration-300 rounded-md hover:shadow-md flex-nowrap">
-          Subscribe
+        <Button className="bg-indigo-500 px-3 py-1 text-white hover:bg-indigo-400 duration-300 rounded-md hover:shadow-md">
+          订阅
         </Button>
       </div>
     </div>
