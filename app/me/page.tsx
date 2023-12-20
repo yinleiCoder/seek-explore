@@ -8,7 +8,7 @@ export default function MePage() {
   return (
     <div className="flex flex-col">
       <Pixel>
-        <p>写好每一个像素</p>
+        <p>超越至圣先师</p>
       </Pixel>
     </div>
   )

@@ -61,7 +61,7 @@ export default function PostPage({
           prose-img:object-cover
        prose-video:aspect-video prose-strong:text-indigo-500 prose-table:border prose-thread:!rounded-md prose-thead:bg-indigo-700 hover:prose-tr:bg-indigo-300 dark:hover:prose-tr:bg-indigo-400 dark:prose-thead:bg-zinc-800 prose-thead:rounded-md prose-th:text-white prose-blockquote:border prose-blockquote:border-black prose-blockquote:shadow-md prose-blockquote:shadow-black/50 dark:prose-blockquote:border-gray-300 dark:prose-blockquote:shadow-md dark:prose-blockquote:shadow-indigo-500/50 prose-blockquote:rounded-lg max-w-none col-start-1 col-end-13 md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11"
         >
-          <Markdown>{post.content ?? '文章待写...'}</Markdown>
+          <Markdown>{post.content ?? ''}</Markdown>
         </article>
         <div className="col-start-1 col-end-13 md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11">
           <Comment />
