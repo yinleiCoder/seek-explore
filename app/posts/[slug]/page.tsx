@@ -5,6 +5,8 @@ import { dateFormat } from '@/utils/date'
 import Image from 'next/image'
 import Link from 'next/link'
 
+export const dynamic = 'force-dynamic'
+
 export const generateStaticParams = async () => {
   const slugs = getPostSlugs()
   return slugs.map(item => {
