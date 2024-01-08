@@ -5,14 +5,14 @@ import CommentForm from './form'
 import { useAppContext } from '@/context/appContext'
 import CommentList from './list'
 
-export default function Comment() {
+export default function Comment({ placeholder }: { placeholder?: string }) {
   const {
-    state: { idToken },
+    state: { token },
   } = useAppContext()
-  const { text, setText, comments, onSubmit, onDelete } = useComments(idToken ?? '')
+  const { text, setText, comments, onSubmit, onDelete } = useComments(token ?? '')
   return (
     <div className="w-full">
-      <CommentForm onSubmit={onSubmit} text={text} setText={setText} />
+      <CommentForm onSubmit={onSubmit} text={text} setText={setText} placeholder={placeholder} />
       <CommentList comments={comments} onDelete={onDelete} />
     </div>
   )

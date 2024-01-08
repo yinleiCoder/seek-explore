@@ -6,6 +6,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import clsx from 'clsx'
 import Navbar from '@/components/navbar'
 import AppContextProvider from '@/context/appContext'
+import { SessionProvider } from 'next-auth/react'
+import { auth } from '@/lib/auth'
 import ThemeProvider from '@/provider/ThemeProvider'
 import BackTop from '@/components/top'
 import ProgressBar from '@/components/progressbar'
@@ -16,25 +18,31 @@ import 'react-loading-skeleton/dist/skeleton.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: '寻寻觅觅',
+  title: {
+    default: '寻寻觅觅',
+    template: '%s | 寻寻觅觅',
+  },
   description: '行之力则知愈进，知之深则行愈达',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const session = await auth()
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={clsx(inter.className, 'bg-white dark:bg-zinc-900 duration-300')}>
         <ProgressBar />
-        <AppContextProvider>
-          <ThemeProvider>
-            <div className="w-full duration-300 min-h-screen flex flex-col">
-              <Navbar />
-              {children}
-              <Footer />
-            </div>
-            <Toaster />
-          </ThemeProvider>
-        </AppContextProvider>
+        <SessionProvider session={session}>
+          <AppContextProvider>
+            <ThemeProvider>
+              <div className="w-full duration-300 min-h-screen flex flex-col">
+                <Navbar />
+                {children}
+                <Footer />
+              </div>
+              <Toaster />
+            </ThemeProvider>
+          </AppContextProvider>
+        </SessionProvider>
         <BackTop />
         <Analytics />
         <SpeedInsights />

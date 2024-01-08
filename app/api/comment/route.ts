@@ -1,9 +1,7 @@
-import { clearUrl } from '@/lib/clearUrl'
-import admin, { adminAuth } from '@/lib/firebase/firebaseAdmin'
+import { clearUrl } from '@/utils/clearUrl'
 import redis from '@/lib/redis'
 import { Comment } from '@/types/comment'
 import { User } from '@/types/user'
-import { auth } from 'firebase-admin'
 import { NextRequest, NextResponse } from 'next/server'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -68,24 +66,6 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // // // 获取并验证用户信息通过firebase, 从请求头获取google auth token
-    // const idToken = request.headers.get('Authorization') as string
-    // // https://firebase.google.com/docs/auth/admin/verify-id-tokens?hl=zh-cn#web
-    // // 先申请firebase admin sdk,再通过其验证token
-    // let decodedToken
-    // try {
-    //     decodedToken = await adminAuth.verifyIdToken(idToken)
-    // } catch (err) {
-    //     console.error(err)
-    //     return NextResponse.json(
-    //         {
-    //             message: err,
-    //         },
-    //         { status: 500 }
-    //     )
-    // }
-    // const uid = decodedToken.uid
-    // const user = await adminAuth.getUser(uid)
     const comment: Comment = {
       id: uuidv4(),
       created_at: Date.now(),

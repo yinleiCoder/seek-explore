@@ -1,13 +1,19 @@
 import Comment from '@/components/comment'
 
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: '停止EMO',
+  description: '留下你最想说的话吧，10年，20年...这里依然保存着你当初留下的话',
+}
+
+// 左边是照片，右边是评论
 export default function PhotoPage() {
   return (
-    <div className="flex flex-col justify-center items-center">
-      <div className="w-full aspect-video object-cover overflow-hidden">unsplash.com数据</div>
-      <section className="w-full grid grid-cols-12 p-3">
-        <div className="col-start-1 col-end-13 md:col-start-2 md:col-end-12 lg:md:col-start-4 lg:col-end-10">
-          <Comment />
-        </div>
+    <div className="flex flex-col md:flex-row p-2 gap-5">
+      <section className="flex-1 bg-red-300"></section>
+      <section className="flex-1">
+        <Comment placeholder="留下你最想对Ta说的话吧🤔" />
       </section>
     </div>
   )

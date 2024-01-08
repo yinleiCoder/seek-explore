@@ -1,9 +1,8 @@
-import { User } from 'firebase/auth'
+import { User } from '@/types/user'
 
 export type State = {
   user: User | null
   token: string | null
-  idToken: string | null
 }
 
 export enum ActionType {
@@ -22,7 +21,6 @@ export type Action = UpdateAction
 export const initState: State = {
   user: null,
   token: '',
-  idToken: '',
 }
 
 // useReducer

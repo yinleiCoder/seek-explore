@@ -1,29 +1,33 @@
 'use client'
 
-import { useAppContext } from '@/context/appContext'
+import clsx from 'clsx'
+import toast from 'react-hot-toast'
 import TextareaAutosize from 'react-textarea-autosize'
-import Button from '../button'
 import { GoComment } from 'react-icons/go'
 import { CiLock } from 'react-icons/ci'
-import clsx from 'clsx'
 import { FormEvent } from 'react'
 import { User } from '@/types/user'
 import Emoji from '../emoji'
-import toast from 'react-hot-toast'
+import Button from '../button'
+import { handleGithubLogin } from '@/lib/actions'
+import { useCurrentUser } from '@/hooks/useCurrentUser'
 
 type CommentFormProps = {
   text: string
   setText: Function
-  onSubmit: (e: React.FormEvent, user: User) => Promise<void>
+  placeholder?: string
+  onSubmit: (user: User) => Promise<void>
 }
 
-export default function CommentForm({ text, setText, onSubmit }: CommentFormProps) {
-  const {
-    state: { user },
-    googleSignIn,
-  } = useAppContext()
+export default function CommentForm({
+  text,
+  setText,
+  onSubmit,
+  placeholder = '友善评论，共同进步，谢谢支持😄',
+}: CommentFormProps) {
+  const user = useCurrentUser()
 
-  function handleAddComment(e: FormEvent) {
+  async function handleAddComment(e: FormEvent) {
     e.preventDefault()
     if (!user) return
     if (text.length === 0) {
@@ -32,18 +36,32 @@ export default function CommentForm({ text, setText, onSubmit }: CommentFormProp
       })
       return
     }
-    const commentOfUser: User = {
-      uid: user.uid,
-      displayName: user.displayName ?? '',
-      email: user.email ?? '',
-      phoneNumber: user.phoneNumber ?? '',
-      photoURL: user.photoURL ?? '',
-    }
-    onSubmit(e, commentOfUser)
+    onSubmit(user)
   }
 
-  const handleLoginByOAuth = async () => {
-    await googleSignIn()
+  if (!user) {
+    return (
+      <div className="flex justify-between">
+        <span className="text-gray-400 text-sm">评论系统由UpStash&Redis驱动</span>
+        <form
+          onSubmit={async e => {
+            e.stopPropagation()
+            await handleGithubLogin()
+          }}
+        >
+          <Button
+            className="bg-red-700 text-white px-4 py-1 duration-300 hover:bg-red-600 text-sm"
+            icon={CiLock}
+            onClick={e => {
+              e.currentTarget.form?.requestSubmit()
+              e.preventDefault()
+            }}
+          >
+            Github登录参与讨论
+          </Button>
+        </form>
+      </div>
+    )
   }
 
   return (
@@ -51,7 +69,7 @@ export default function CommentForm({ text, setText, onSubmit }: CommentFormProp
       <TextareaAutosize
         maxRows={3}
         minRows={1}
-        placeholder="友善评论，共同进步，谢谢支持😄"
+        placeholder={placeholder}
         value={text}
         onChange={e => {
           setText(e.target.value)
@@ -62,29 +80,14 @@ export default function CommentForm({ text, setText, onSubmit }: CommentFormProp
         })}
       />
       <div className="flex justify-between items-start my-2">
-        {user ? (
-          <>
-            <Emoji onSelect={(emoji: string) => setText(`${text}${emoji}`)} />
-            <Button
-              className="bg-indigo-500 text-white px-4 py-1 duration-300 hover:bg-indigo-400"
-              icon={GoComment}
-              type="submit"
-            >
-              评论
-            </Button>
-          </>
-        ) : (
-          <>
-            <span className="text-gray-400 text-sm">评论系统由UpStash&Redis驱动</span>
-            <Button
-              className="bg-red-700 text-white px-4 py-1 duration-300 hover:bg-red-600"
-              icon={CiLock}
-              onClick={handleLoginByOAuth}
-            >
-              Google账户登录方可参与讨论
-            </Button>
-          </>
-        )}
+        <Emoji onSelect={(emoji: string) => setText(`${text}${emoji}`)} />
+        <Button
+          className="bg-indigo-500 text-white px-4 py-1 duration-300 hover:bg-indigo-400"
+          icon={GoComment}
+          type="submit"
+        >
+          评论
+        </Button>
       </div>
     </form>
   )

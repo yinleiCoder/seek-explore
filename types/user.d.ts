@@ -1,7 +1,6 @@
 export interface User {
   uid: string
-  displayName?: string
+  name?: string
   email?: string
-  phoneNumber?: string
-  photoURL?: string
+  image?: string
 }

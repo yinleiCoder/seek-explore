@@ -18,8 +18,7 @@ export default function useComments(token = '') {
   })
 
   // add comment
-  const onSubmit = async (e: React.FormEvent, user: User) => {
-    e.preventDefault()
+  const onSubmit = async (user: User) => {
     try {
       await fetch('/api/comment', {
         method: 'POST',
