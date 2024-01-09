@@ -26,7 +26,7 @@ const links: LinkProp[] = [
     className: 'hidden md:inline-block',
   },
   {
-    name: '停止emo',
+    name: '诀别书',
     href: '/wall',
     className: '',
   },

@@ -112,7 +112,7 @@ export default function Banner() {
         <div className="flex flex-col items-end gap-2">
           <section className="flex flex-col items-end">
             <h1 className="text-2xl font-bold">Yin Lei</h1>
-            <p>Welcome, handsome boy or beautiful girl😄I am a full stack software engineer.</p>
+            <p>Welcome, 😄I am a full stack software engineer.</p>
           </section>
           <section className="flex flex-wrap gap-2">
             {skills.map(skill => (

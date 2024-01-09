@@ -1,6 +1,7 @@
 'use client'
 
 import { useAppContext } from '@/context/appContext'
+import { useCurrentUser } from '@/hooks/useCurrentUser'
 import { Comment } from '@/types/comment'
 import { dateRelativeTime } from '@/utils/date'
 import { motion } from 'framer-motion'
@@ -11,16 +12,15 @@ type CommentListProps = {
 }
 
 export default function CommentList({ comments, onDelete }: CommentListProps) {
-  const {
-    state: { user },
-  } = useAppContext()
+  const user = useCurrentUser()
+
   return (
     <div className="space-y-5">
       {comments &&
         comments.map(comment => {
           const isAuthor = user && user.uid === comment.user.uid
           return (
-            <div className="flex gap-3 items-start " key={comment.id}>
+            <div className="flex gap-3 items-start" key={comment.id}>
               <div className="flex-shrink-0">
                 <motion.img
                   src={comment.user.image ?? ''}

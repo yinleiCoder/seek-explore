@@ -2,7 +2,7 @@ import { IoLogoGithub } from 'react-icons/io'
 
 export default function Footer() {
   return (
-    <footer className="flex justify-center items-center text-sm md:text-base py-2 dark:text-white text-gray-700 gap-2 border-t">
+    <footer className="flex justify-center items-center text-sm md:text-base py-2 dark:text-white text-gray-700 gap-2 border-t border-gray-400">
       <span>©&nbsp;{new Date().getFullYear()}&nbsp;尹磊&nbsp;网站由Nextjs14强力驱动</span>
       <a
         target="_blank"

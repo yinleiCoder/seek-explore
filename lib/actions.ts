@@ -1,10 +1,10 @@
 'use server'
 import { AuthError } from 'next-auth'
+import bcrypt from 'bcryptjs'
 // server action
 import { signIn, signOut } from './auth'
 import { connectDB } from './db'
 import { User } from '@/models/user'
-import bcrypt from 'bcryptjs'
 
 export const handleGithubLogin = async () => {
   await signIn('github')
@@ -37,7 +37,7 @@ export const register = async (previousState: any, formData: FormData) => {
     return { success: true }
   } catch (err) {
     console.error(err)
-    return { error: '注册新用户出错了~请联系管理员！' }
+    return { error: '注册新用户出错了，请检查用户名和密码！' }
   }
 }
 

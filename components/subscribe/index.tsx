@@ -2,15 +2,31 @@
 
 import { CiLocationArrow1 } from 'react-icons/ci'
 import { CgGirl } from 'react-icons/cg'
-import Button from '../button'
-import { useAppContext } from '@/context/appContext'
+import { BsSend } from 'react-icons/bs'
 import { useEffect, useState } from 'react'
 import { useCurrentUser } from '@/hooks/useCurrentUser'
+import toast from 'react-hot-toast'
+import { motion } from 'framer-motion'
 
 // 订阅更新通过email
 export default function Subscribe() {
   const user = useCurrentUser()
   const [email, setEmail] = useState<string>('')
+
+  const handleSendEmail = async () => {
+    const res = await fetch('/api/send', {
+      method: 'POST',
+      body: JSON.stringify(email),
+    })
+    const data = await res.json()
+    if (data.error) {
+      toast.error(data.error)
+    } else {
+      toast('订阅成功！将第一时间推送文章更新、时政消息和四川考编动态', {
+        icon: '👏',
+      })
+    }
+  }
 
   useEffect(() => {
     if (user) {
@@ -22,18 +38,18 @@ export default function Subscribe() {
     <div className="mx-auto max-w-2xl my-5 flex flex-col gap-4 border rounded-xl px-2 md:px-6 py-3 md:py-5">
       <div className="font-bold text-xl flex items-center gap-1">
         <CiLocationArrow1 />
-        <h1 className="text-base animate-pulse">动态更新</h1>
+        <h1 className="text-base animate-pulse text-indigo-500">订阅</h1>
       </div>
       <p className="flex items-center gap-1 text-sm flex-wrap">
-        亲爱的<span className="font-bold text-indigo-500 mx-1">{user?.name ?? '朋友'},</span>
-        如果喜欢我的文章，不妨订阅支持一下 <CgGirl />
+        <span className="font-bold text-indigo-500">{user?.name ?? '朋友'}</span>
+        ,点击订阅将第一时间推送文章更新、时政消息和四川考编动态
+        <CgGirl />
       </p>
-      <p className="text-sm text-gray-500">
-        每月一封，随时可以取消订阅(邮件订阅功能由React.Email & Resend驱动)
-      </p>
-      <div className="flex gap-2 items-center">
+      <p className="text-sm text-gray-500">邮件订阅功能由React.Email & Resend驱动</p>
+      <div className="w-full flex gap-2 items-center">
         <input
           type="email"
+          name="email"
           className="flex-1 px-3 py-2 rounded-md outline-none bg-zinc-100 dark:bg-zinc-800"
           placeholder="Your email..."
           value={email}
@@ -41,9 +57,16 @@ export default function Subscribe() {
             setEmail(e.target.value)
           }}
         />
-        <Button className="bg-indigo-500 px-3 py-1 text-white hover:bg-indigo-400 duration-300 rounded-md hover:shadow-md">
-          订阅
-        </Button>
+        <motion.button
+          className="bg-indigo-500 p-2 text-white hover:bg-indigo-400 rounded-full shadow-md"
+          disabled={!user}
+          onClick={handleSendEmail}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+        >
+          <BsSend />
+        </motion.button>
       </div>
     </div>
   )

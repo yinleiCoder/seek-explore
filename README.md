@@ -20,5 +20,7 @@
 - [Mongoose](https://mongoosejs.com/)
 - [MongoDB](https://cloud.mongodb.com/v2/659b41acbde7574091c9f75a#/clusters/connect?clusterId=blog)
 - [UpStash Redis](https://console.upstash.com/redis/4f8625b0-85cb-4a35-9e2d-b7c84e9a33fc)
+- [Resend](https://resend.com/home)
+- [ReactEmail](https://react.email/)
 - [Awesome React Components](https://github.com/brillout/awesome-react-components)
 - [Vercel](https://vercel.com/yinlei/seek-explore)
