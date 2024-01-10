@@ -44,11 +44,14 @@
     "react-tooltip": "^5.25.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
+    "remark": "^15.0.1",
     "remark-gfm": "^4.0.0",
     "remark-toc": "^9.0.0",
     "resend": "^2.1.0",
     "sharp": "^0.33.0",
+    "strip-markdown": "^6.0.0",
     "swr": "^2.2.4",
+    "tencentcloud-sdk-nodejs": "^4.0.777",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

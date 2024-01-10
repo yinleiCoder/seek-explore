@@ -45,7 +45,7 @@ export default function Subscribe() {
         ,点击订阅将第一时间推送文章更新、时政消息和四川考编动态
         <CgGirl />
       </p>
-      <p className="text-sm text-gray-500">邮件订阅功能由React.Email & Resend驱动</p>
+      <p className="text-xs text-gray-500">邮件订阅功能由React.Email & Resend驱动</p>
       <div className="w-full flex gap-2 items-center">
         <input
           type="email"

@@ -21,7 +21,7 @@ export default function CommentList({ comments, onDelete }: CommentListProps) {
           const isAuthor = user && user.uid === comment.user.uid
           return (
             <div className="flex gap-3 items-start" key={comment.id}>
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 border-2 border-black rounded-full overflow-hidden">
                 <motion.img
                   src={comment.user.image ?? ''}
                   className="w-10 aspect-square rounded-full"

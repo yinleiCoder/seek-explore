@@ -1,3 +1,4 @@
+import TTSAudioPlayer from '@/components/audioPlayer/ttsAudio'
 import Comment from '@/components/comment'
 import Markdown from '@/components/markdown'
 import { getPostBySlug, getPostSlugs } from '@/lib/post'
@@ -41,7 +42,7 @@ export default function PostPage({
               width={50}
               height={50}
               alt="author yinlei"
-              className="rounded-full"
+              className="rounded-full border-2 border-black"
             />
           </Link>
           <div className="flex flex-col justify-start gap-1">
@@ -57,6 +58,9 @@ export default function PostPage({
           <h1 className="text-2xl font-bold">{post.title}</h1>
           <p className="text-gray-600 dark:text-gray-300">{post.description}</p>
           <div className="h-[1px] border  w-full rounded"></div>
+        </div>
+        <div className="col-start-1 col-end-13 md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11">
+          <TTSAudioPlayer markdownText={post.content ?? ''} />
         </div>
         <article
           className="prose prose-sm md:prose-base dark:prose-invert prose-a:no-underline prose-a:text-indigo-500 prose-a:after:content-['📦'] prose-headings:scroll-mt-5 prose-img:rounded-lg
