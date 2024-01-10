@@ -98,6 +98,14 @@ const useAudio = () => {
     progressBar.current.max = seconds.toString()
   }, [audioPlayer.current?.readyState])
 
+  useEffect(() => {
+    if (duration > 0 && currentTime === duration) {
+      togglePlayState()
+      progressBar.current!.value = String(0)
+      changeRange()
+    }
+  }, [currentTime, duration])
+
   return {
     isPlaying,
     duration,
