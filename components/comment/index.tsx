@@ -10,6 +10,7 @@ export default function Comment({ placeholder }: { placeholder?: string }) {
     state: { token },
   } = useAppContext()
   const { text, setText, comments, onSubmit, onDelete } = useComments(token ?? '')
+
   return (
     <div className="w-full">
       <CommentForm onSubmit={onSubmit} text={text} setText={setText} placeholder={placeholder} />

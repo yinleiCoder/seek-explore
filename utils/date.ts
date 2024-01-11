@@ -1,4 +1,4 @@
-import dayjs, { Dayjs } from 'dayjs'
+import dayjs, { Dayjs, OpUnitType, QUnitType } from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import 'dayjs/locale/zh-cn'
@@ -16,9 +16,10 @@ export const dateFormat = (
 
 export const dateDiff = (
   date1: string | number | Date | Dayjs,
-  date2: string | number | Date | Dayjs
+  date2: string | number | Date | Dayjs,
+  unit: QUnitType | OpUnitType = 'second'
 ) => {
-  return dayjs(date1).diff(date2, 'second')
+  return dayjs(date1).diff(date2, unit)
 }
 
 export const dateRelativeTime = (date: string | number | Date | Dayjs) => {
