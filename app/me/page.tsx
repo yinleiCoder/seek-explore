@@ -12,10 +12,11 @@ const Pixel = dynamic(() => import('../../components/pixel'), {
 
 export default function MePage() {
   return (
-    <div className="flex flex-col">
+    <main className="flex-1 flex flex-col">
       <Pixel>
         <p>写好每一个像素</p>
       </Pixel>
-    </div>
+      <section className="w-full h-screen bg-purple-600"></section>
+    </main>
   )
 }

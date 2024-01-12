@@ -22,7 +22,9 @@ function LoginPage() {
     <div className="flex-1 flex gap-3">
       <div className="hidden md:block flex-1 relative">
         <Image
-          src={'https://images.pexels.com/photos/19745465/pexels-photo-19745465.jpeg'}
+          src={
+            'https://images.pexels.com/photos/19789102/pexels-photo-19789102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+          }
           alt="pexels.com"
           fill
           className="bg-cover"

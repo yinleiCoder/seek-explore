@@ -1,0 +1,13 @@
+.video-js {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 4px 4px 4px rgba(0,0,0,.3);
+}
+
+.video-js .vjs-control-bar {
+    background: linear-gradient(to bottom,transparent 25%, black);
+}
+
+.video-js .vjs-play-progress {
+    background-color: rgb(99, 102, 241);
+}

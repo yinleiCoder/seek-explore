@@ -2,6 +2,7 @@
 
 import Button from '@/components/button'
 import { register } from '@/lib/actions'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useEffect } from 'react'
@@ -17,8 +18,16 @@ function RegisterPage() {
   }, [state?.success, router])
 
   return (
-    <div className="flex-1 flex justify-center items-center flex-col">
-      <div className="w-[85vw] md:w-[30vw] shadow-md rounded-md overflow-hidden border px-6 py-8">
+    <div className="flex-1 flex justify-center items-center flex-col relative">
+      <Image
+        src={
+          'https://images.pexels.com/photos/19730553/pexels-photo-19730553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+        }
+        fill
+        alt="register background"
+        className="object-cover z-[-10]"
+      />
+      <div className="w-[85vw] md:w-[30vw] shadow-md rounded-md overflow-hidden px-6 py-8 bg-zinc-100/50 dark:bg-zinc-800/50">
         <span className="text-3xl flex justify-center mb-3 hover:text-indigo-500">
           <CgBoy />
         </span>

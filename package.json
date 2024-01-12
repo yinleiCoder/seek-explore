@@ -15,6 +15,7 @@
     "@emoji-mart/react": "^1.1.1",
     "@react-email/components": "^0.0.12",
     "@react-email/tailwind": "^0.0.13",
+    "@sanity/image-url": "^1.0.2",
     "@studio-freight/lenis": "^1.0.33",
     "@studio-freight/react-lenis": "^0.0.43",
     "@types/react-syntax-highlighter": "^15.5.11",
@@ -31,6 +32,7 @@
     "mongoose": "^8.0.3",
     "next": "14.0.4",
     "next-auth": "^5.0.0-beta.4",
+    "next-sanity": "^7.0.10",
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
@@ -54,7 +56,8 @@
     "strip-markdown": "^6.0.0",
     "swr": "^2.2.4",
     "tencentcloud-sdk-nodejs": "^4.0.777",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "video.js": "^8.9.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",

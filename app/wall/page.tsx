@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function WallPage() {
   return (
-    <div className="min-h-[calc(100vh-64px-35px)] flex flex-col p-2 gap-5 container lg:max-w-5xl mx-auto">
+    <div className="min-h-[calc(100vh-64px-35px)] flex flex-col p-2 gap-5 container max-w-5xl mx-auto">
       <section className="w-full mt-2 bgred-300">
         <AudioPlayer track="/audios/诀别书.m4a" />
       </section>

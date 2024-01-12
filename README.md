@@ -24,4 +24,6 @@
 - [ReactEmail](https://react.email/)
 - [Awesome React Components](https://github.com/brillout/awesome-react-components)
 - [tts](https://cloud.tencent.com/document/product/1073/56640)
+- [Video.js](https://videojs.com/guides)
+- [Sanity](https://www.sanity.io/)
 - [Vercel](https://vercel.com/yinlei/seek-explore)

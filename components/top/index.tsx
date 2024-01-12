@@ -1,16 +1,23 @@
 'use client'
 
+import clsx from 'clsx'
 import { PiArrowUpDuotone } from 'react-icons/pi'
 import { motion } from 'framer-motion'
 import { useScroll } from 'ahooks'
 import { useEffect, useState } from 'react'
-import clsx from 'clsx'
+import { usePathname } from 'next/navigation'
 
 export default function BackTop() {
   const scrollPosition = useScroll(typeof window !== 'undefined' ? document : null)
+  const pathname = usePathname()
+  const relativePathname = pathname.slice(1)
+  const blackPathnames = ['watch', 'news']
   const [show, setShow] = useState(false)
 
   useEffect(() => {
+    if (blackPathnames.includes(relativePathname)) {
+      return
+    }
     if (scrollPosition && scrollPosition.top > 0) {
       setShow(true)
     } else {

@@ -117,7 +117,7 @@ export default function NewsPage() {
         </div>
       </section>
       <ReactLenis root>
-        <div ref={cardWrapper} className="container lg:max-w-5xl mx-auto p-2 md:p-0">
+        <div ref={cardWrapper} className="container max-w-5xl mx-auto p-2 md:p-0">
           {news.map((newItem, index) => {
             const targetScale = 1 - (news.length - index) * 0.05
             return (
