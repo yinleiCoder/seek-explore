@@ -21,18 +21,18 @@ const links: LinkProp[] = [
     className: '',
   },
   {
-    name: '雅俗共赏',
+    name: '视频教程',
     href: '/watch',
     className: 'hidden md:inline-block',
   },
   {
-    name: '留言墙',
+    name: '留言板',
     href: '/wall',
     className: '',
   },
   {
-    name: '开源软件',
-    href: '/openSource',
+    name: '常用网站',
+    href: '/fus',
     className: 'hidden md:inline-block',
   },
   {

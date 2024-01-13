@@ -30,6 +30,11 @@ function AuthEntry({ session }: { session: Session | null }) {
               alt={user?.name ?? ''}
             />
           </motion.div>
+          <a href="https://yinlei.sanity.studio/" target="_blank">
+            <Button className="bg-zinc-900 text-white px-1 py-[1px] rounded-md cursor-pointer dark:bg-indigo-500">
+              CMS
+            </Button>
+          </a>
           <form action={handleLogout}>
             <Button icon={AiOutlineLogout}>退出登录</Button>
           </form>

@@ -1,5 +1,7 @@
 import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
+import ParallaxGallery from '@/components/parallax'
+import MaskCursor from '@/components/cursor'
 
 export const metadata: Metadata = {
   title: '了解我',
@@ -12,11 +14,12 @@ const Pixel = dynamic(() => import('../../components/pixel'), {
 
 export default function MePage() {
   return (
-    <main className="flex-1 flex flex-col">
+    <main className="flex flex-col">
       <Pixel>
-        <p>写好每一个像素</p>
+        <p>Creative development is future proof</p>
       </Pixel>
-      <section className="w-full h-screen bg-purple-600"></section>
+      <ParallaxGallery />
+      <MaskCursor />
     </main>
   )
 }

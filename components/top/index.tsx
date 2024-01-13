@@ -11,7 +11,7 @@ export default function BackTop() {
   const scrollPosition = useScroll(typeof window !== 'undefined' ? document : null)
   const pathname = usePathname()
   const relativePathname = pathname.slice(1)
-  const blackPathnames = ['watch', 'news']
+  const blackPathnames = ['watch', 'news', 'me']
   const [show, setShow] = useState(false)
 
   useEffect(() => {

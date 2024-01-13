@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description: '我们把握不住时间，但是照片为我们定格了难忘的瞬间',
 }
 
+export const revalidate = 300 // 每5分钟重新验证数据
+
 async function getData() {
   const query = `
   *[_type == 'blog'] | order(_createdAt desc) {
@@ -21,10 +23,10 @@ async function getData() {
 }
 
 export default async function PhotoPage() {
-  const data: BlogSimple[] = await getData()
+  // const data: BlogSimple[] = await getData()
   return (
-    <div>
-      <div className="grid grid-cols-3 gap-2">
+    <main>
+      {/* <div className="grid grid-cols-3 gap-2">
         {data.map((post, index) => {
           return (
             <div key={index} className="w-full aspect-video relative">
@@ -33,16 +35,10 @@ export default async function PhotoPage() {
                 alt=""
                 className="w-full h-full object-cover"
               />
-              {/* <Image
-                src={urlFor(post.titleImage).url()}
-                alt={post.title}
-                className="object-cover w-full h-full"
-                fill
-              /> */}
             </div>
           )
         })}
-      </div>
-    </div>
+      </div> */}
+    </main>
   )
 }
