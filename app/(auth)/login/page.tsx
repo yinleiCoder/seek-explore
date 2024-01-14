@@ -21,14 +21,7 @@ function LoginPage() {
   return (
     <div className="flex-1 flex gap-3">
       <div className="hidden md:block flex-1 relative">
-        <Image
-          src={
-            'https://images.pexels.com/photos/19789102/pexels-photo-19789102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-          }
-          alt="pexels.com"
-          fill
-          className="bg-cover"
-        />
+        <Image src="/images/register.webp" alt="pexels.com" fill className="object-cover" />
       </div>
       <div className="flex-[2] flex justify-center items-center">
         <div className="flex flex-col gap-3 bg-white/90 dark:bg-zinc-900 duration-300 items-center w-3/4 md:w-2/4">

@@ -20,9 +20,7 @@ function RegisterPage() {
   return (
     <div className="flex-1 flex justify-center items-center flex-col relative">
       <Image
-        src={
-          'https://images.pexels.com/photos/19730553/pexels-photo-19730553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-        }
+        src="/images/login.webp"
         fill
         alt="register background"
         className="object-cover z-[-10]"

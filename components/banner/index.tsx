@@ -3,6 +3,7 @@
 import { MouseEvent, MouseEventHandler, useEffect, useRef } from 'react'
 import { useSize } from 'ahooks'
 import Magnetic from '../magnetic'
+import Image from 'next/image'
 
 type Size = {
   width: number
@@ -96,35 +97,38 @@ export default function Banner() {
   }
 
   return (
-    <div className="h-[calc(100vh-64px-30px)] w-full box-border overflow-hidden relative bg-indigo-500 flex flex-col justify-end md:justify-center items-center text-white py-2">
-      <div className="h-[1px] w-[80%] relative mb-[20px]" ref={divContainerRef}>
-        <div
-          onMouseEnter={manageMouseEnter}
-          onMouseMove={manageMouseMove}
-          onMouseLeave={manageMouseLeave}
-          className="box h-[40px] relative top-[-20px] z-10 hover:h-[150px] hover:top-[-75px]"
-        ></div>
-        <svg className="w-full h-[100px] absolute top-[-50px]">
-          <path ref={path} strokeWidth={1} stroke="white" fill="transparent"></path>
-        </svg>
-      </div>
-      <div className="w-[80%] flex justify-end">
-        <div className="flex flex-col items-end gap-2">
-          <section className="flex flex-col items-end">
-            <h1 className="text-2xl font-bold">Yin Lei</h1>
-            <p>Welcome, 😄I am a full stack software engineer.</p>
-          </section>
-          <section className="flex flex-wrap gap-2">
-            {skills.map(skill => (
-              <Magnetic key={skill}>
-                <span className="border rounded-lg px-2 py-1 cursor-pointer duration-300 hover:bg-indigo-400 text-xs">
-                  {skill}
-                </span>
-              </Magnetic>
-            ))}
-          </section>
+    <div className="h-[calc(100vh-64px-30px)] w-full box-border overflow-hidden bg-red-300">
+      <Image src="/images/login.webp" priority fill className="object-cover" alt="banner" />
+      <section className="w-full h-full relative flex flex-col justify-end md:justify-center items-center text-white py-2">
+        <div className="h-[1px] w-[80%] relative mb-[20px]" ref={divContainerRef}>
+          <div
+            onMouseEnter={manageMouseEnter}
+            onMouseMove={manageMouseMove}
+            onMouseLeave={manageMouseLeave}
+            className="box h-[40px] relative top-[-20px] z-10 hover:h-[150px] hover:top-[-75px]"
+          ></div>
+          <svg className="w-full h-[100px] absolute top-[-50px]">
+            <path ref={path} strokeWidth={1} stroke="white" fill="transparent"></path>
+          </svg>
         </div>
-      </div>
+        <div className="w-[80%] flex justify-end">
+          <div className="flex flex-col items-end gap-2">
+            <section className="flex flex-col items-end">
+              <h1 className="text-2xl font-bold">Yin Lei</h1>
+              <p>Welcome, 😄I am a full stack software engineer.</p>
+            </section>
+            <section className="flex flex-wrap gap-2">
+              {skills.map(skill => (
+                <Magnetic key={skill}>
+                  <span className="border rounded-lg px-2 py-1 cursor-pointer duration-300 hover:bg-indigo-400 text-xs">
+                    {skill}
+                  </span>
+                </Magnetic>
+              ))}
+            </section>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

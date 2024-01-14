@@ -23,7 +23,7 @@ export default function BackTop() {
     } else {
       setShow(false)
     }
-  }, [scrollPosition])
+  }, [scrollPosition, pathname])
 
   function handleBackToTop() {
     if (typeof window === 'undefined') {

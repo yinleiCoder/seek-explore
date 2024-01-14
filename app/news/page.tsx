@@ -1,20 +1,13 @@
 'use client'
 
-import {
-  animate,
-  motion,
-  useAnimate,
-  useMotionValue,
-  useScroll,
-  useSpring,
-  useTransform,
-} from 'framer-motion'
+import { animate, motion, useMotionValue, useScroll, useTransform } from 'framer-motion'
 import { v4 as uuidv4 } from 'uuid'
 import StackCard from '@/components/card/stackCard'
 import { News } from '@/types/news'
 import { useEffect, useRef } from 'react'
 import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
 import { dateDiff } from '@/utils/date'
+import { fireSchoolPride } from '@/lib/confetti'
 
 const news: News[] = [
   {
@@ -87,12 +80,13 @@ export default function NewsPage() {
 
   useEffect(() => {
     const controls = animate(initCount, countDown, { type: 'spring' })
+    fireSchoolPride()
     return controls.stop
   }, [])
 
   return (
     <main>
-      <section className="w-full h-[50vh] flex flex-col justify-center items-center box-border">
+      <section className="w-full h-[100vh] flex flex-col justify-center items-center box-border">
         <div className="flex flex-col justify-start gap-2">
           <div className="text-2xl md:text-3xl font-semibold flex items-center gap-2">
             <span>距离</span>

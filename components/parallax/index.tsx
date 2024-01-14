@@ -36,7 +36,7 @@ function ParallaxGallery() {
   return (
     <div
       ref={parallaxContainer}
-      className="w-full h-[175vh] bg-zinc-900 dark:bg-zinc-800 flex gap-[2vw] p-[2vw] box-border overflow-hidden"
+      className="w-full h-[175vh] bg-zinc-900 dark:bg-zinc-800 flex gap-[2vw] p-[2vw] box-border overflow-hidden z-40"
     >
       <Column
         images={[sourceImages[0], sourceImages[1], sourceImages[2]]}
@@ -49,12 +49,12 @@ function ParallaxGallery() {
         classNames="top-[-95%]"
       />
       <Column
-        images={[sourceImages[6], sourceImages[7], sourceImages[8]]}
+        images={[sourceImages[6], sourceImages[7], sourceImages[11]]}
         y={y3}
         classNames="top-[-45%]"
       />
       <Column
-        images={[sourceImages[9], sourceImages[10], sourceImages[11]]}
+        images={[sourceImages[9], sourceImages[10], sourceImages[8]]}
         y={y4}
         classNames="top-[-75%]"
       />

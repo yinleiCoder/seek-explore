@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
 import ParallaxGallery from '@/components/parallax'
 import MaskCursor from '@/components/cursor'
+import { AudioPlayer } from '@/components/audioPlayer'
 
 export const metadata: Metadata = {
   title: '了解我',
@@ -18,6 +19,9 @@ export default function MePage() {
       <Pixel>
         <p>Creative development is future proof</p>
       </Pixel>
+      <section className="my-2 sticky top-2 z-30">
+        <AudioPlayer track={'/audios/me.m4a'} />
+      </section>
       <ParallaxGallery />
       <MaskCursor />
     </main>

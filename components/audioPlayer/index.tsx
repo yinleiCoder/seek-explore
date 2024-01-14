@@ -71,11 +71,6 @@ function AudioPlayer({ track }: { track: string }) {
           5
         </Button>
       </section>
-      <section>
-        <div className="border border-indigo-500 rounded-md py-[2px] px-1 text-sm cursor-pointer">
-          诀别书
-        </div>
-      </section>
       <section className="flex-1 flex items-center gap-2">
         <span>{calculateTime(currentTime)}</span>
         <div className="flex-1 flex items-center">
