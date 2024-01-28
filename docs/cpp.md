@@ -53,22 +53,6 @@ tag: 计算机
 - Template C++
 - STL
 
-## 在Linux平台上C++编程
-
-> Linux平台上使用C++编程时，需要具备平台搭建、编写程序、调试及在复杂工程中Makefile的使用能力等
-
-### Makefile
-
-### Makefile之make、Makefile的调用
-
-### Makefile的格式
-
-### Makefile的扩展用法
-
-### Makefile编写中的变量
-
-### Makefile自动生成和部署(CMake)
-
 ## 编程语言的排行榜之争
 
 笔者拙见：这种排行榜不太有参考意义，去了解一下它的排行数据来源。

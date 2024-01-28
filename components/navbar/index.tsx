@@ -3,8 +3,9 @@ import AuthEntry from './auth'
 import { auth } from '@/lib/auth'
 import NavLinks from './links'
 import ThemeWrapper from './themewrapper'
+import Kdb from '../kdb'
 
-const links: LinkProp[] = [
+export const links: LinkProp[] = [
   {
     name: '随笔',
     href: '/',
@@ -21,19 +22,14 @@ const links: LinkProp[] = [
     className: '',
   },
   {
-    name: '视频教程',
+    name: '视频科普',
     href: '/watch',
     className: 'hidden md:inline-block',
   },
   {
-    name: '留言板',
+    name: '留言墙',
     href: '/wall',
     className: '',
-  },
-  {
-    name: '常用网站',
-    href: '/fus',
-    className: 'hidden md:inline-block',
   },
   {
     name: '了解我',
@@ -52,6 +48,10 @@ export default async function Navbar() {
         <NavLinks links={links} />
       </nav>
       <div className="col-start-9 col-end-13 justify-self-end flex gap-2 md:gap-5 items-center">
+        <div className="hidden md:flex md:gap-1 md:items-center">
+          <Kdb className="py-[2px] border dark:border-none shadow-md">Ctrl</Kdb>
+          <Kdb className="py-[2px] border dark:border-none shadow-md">Q</Kdb>
+        </div>
         <div
           id="theme-toggle"
           className="flex items-center justify-center p-2 rounded-full border dark:border-gray-500 box-border hover:bg-zinc-100 dark:hover:bg-zinc-800 duration-300"

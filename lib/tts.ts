@@ -27,7 +27,12 @@ async function tts(text: string) {
     SessionId: uuidv4(),
     VoiceType: 1010, // 智华的音色
   }
-  return (await ttsClient.TextToVoice(req)).Audio
+  try {
+    return (await ttsClient.TextToVoice(req)).Audio
+  } catch (err) {
+    console.log(err)
+  }
+  return null
 }
 
 export { tts }

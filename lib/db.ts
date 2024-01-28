@@ -7,11 +7,11 @@ type ConnectionProps = {
   isConnected: ConnectionStates
 }
 
-const connection: ConnectionProps = { isConnected: ConnectionStates.disconnected }
+const connection: ConnectionProps = { isConnected: 0 }
 
 export const connectDB = async () => {
   try {
-    if (connection.isConnected === ConnectionStates.connected) {
+    if (connection.isConnected === 1) {
       console.log('Reusing existing connection!')
       return
     }

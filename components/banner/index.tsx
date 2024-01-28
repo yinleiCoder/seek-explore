@@ -97,7 +97,7 @@ export default function Banner() {
   }
 
   return (
-    <div className="h-[calc(100vh-64px-30px)] w-full box-border overflow-hidden bg-red-300">
+    <div className="h-[calc(100vh-64px-30px)] w-full box-border overflow-hidden relative">
       <Image src="/images/login.webp" priority fill className="object-cover" alt="banner" />
       <section className="w-full h-full relative flex flex-col justify-end md:justify-center items-center text-white py-2">
         <div className="h-[1px] w-[80%] relative mb-[20px]" ref={divContainerRef}>
@@ -115,7 +115,7 @@ export default function Banner() {
           <div className="flex flex-col items-end gap-2">
             <section className="flex flex-col items-end">
               <h1 className="text-2xl font-bold">Yin Lei</h1>
-              <p>Welcome, 😄I am a full stack software engineer.</p>
+              <p>你好, 😄我是一名喜欢C++的全栈软件工程师</p>
             </section>
             <section className="flex flex-wrap gap-2">
               {skills.map(skill => (

@@ -27,6 +27,7 @@
     "bcryptjs": "^2.4.3",
     "canvas-confetti": "^1.9.2",
     "clsx": "^2.0.0",
+    "cmdk": "^0.2.0",
     "dayjs": "^1.11.10",
     "emoji-mart": "^5.5.2",
     "framer-motion": "^10.16.16",

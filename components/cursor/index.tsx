@@ -35,16 +35,16 @@ function MaskCursor() {
             setIsHovered(false)
           }}
         >
-          The more time passes by, the more technology we have. The more A.I develops itself, the
-          more value will be put in authentic expressions. We are slowly entering a new era, a
-          technology enabled-era where creative expression can be made through technology.
+          我喜欢这些编程语言和技术栈方向：C、C++、Go、JavaScript、C#、Python、FFmpeg、OpenCV、OpenGL、Android、Docker、逆向分析、数据分析、NLP、计算机视觉。如果你非要说学这些能带给我什么，我只能回答：我很享受通过写代码做出自己想做的软件，类似游戏外挂，既给我成就感，也给我的生活带来了效率。Enjoy
+          it!
         </p>
       </motion.div>
       <div className="body w-full h-full flex justify-center items-center text-[#afa18f] text-4xl font-bold cursor-default">
         <p className="w-[1000px]">
-          A creative developer sits between the <span className="text-red-600">arts</span> and{' '}
-          <span className="text-red-600">software</span> engineering. Creative development is a mix
-          of art and technology.
+          我是<span className="text-red-600">全栈软件工程师</span>
+          ，不是技术大佬，目标是未来能成为计算机大师。透过现象看本质，
+          <span className="text-red-600">计算机编程≈内存＋数据结构＋算法</span>
+          。但时常纠结知识的“深度”还是“广度”，其代价就是学习成本。广泛涉猎是有一定好处的，贵在“精通”(没有谁敢用这个词😂)1个领域，这才有可能成为行业翘楚。
         </p>
       </div>
     </section>

@@ -41,9 +41,25 @@ tag: 计算机
 
 ## FFmpeg Filter滤镜
 
+# OpenCV
+
+> 官方文档：https://docs.opencv.org/4.9.0/d1/dfb/intro.html
+
+
 # FFmpeg官网文档翻译
 
-> 文档：https://ffmpeg.org/ffmpeg.html
+一个完整的跨平台解决方案，用于录制、转换和流式传输音频和视频。
 
-# OpenCV
+面向开发人员的 FFmpeg 库：
+
+- **libavutil**：核心工具库，定义了基础数据结构
+- **libavcodec**: 集成了很多编码器、解码器的库
+- **libavformat**: 用于封装、解封装，包含了多种封装格式，最重要的模块之一
+- **libavdevice**: 输入和输出设备的库，用于抓取和渲染到许多常见的多媒体输入/输出软件框架，包括 Video4Linux、Video4Linux2、VfW 和 ALSA
+- **libavfilter**: 音视频滤镜库，该模块提供了音频特效、视频特效的处理
+- **libswscale**: 将图像进行格式转换的模块
+- **libswresample**: 用于音频重采样
+
+> 官方文档：https://ffmpeg.org/ffmpeg-all.html
+
 

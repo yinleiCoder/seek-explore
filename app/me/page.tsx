@@ -17,10 +17,10 @@ export default function MePage() {
   return (
     <main className="flex flex-col">
       <Pixel>
-        <p>Creative development is future proof</p>
+        <p>面向信仰编程</p>
       </Pixel>
-      <section className="my-2 sticky top-2 z-30">
-        <AudioPlayer track={'/audios/me.m4a'} />
+      <section className="my-2">
+        <AudioPlayer track={'/audios/红玫瑰.m4a'} />
       </section>
       <ParallaxGallery />
       <MaskCursor />

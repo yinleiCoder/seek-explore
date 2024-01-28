@@ -25,16 +25,3 @@ body {
   background-color: gray;
   border-radius: 4px;
 }
-
-.postToc li {
-  list-style-type: none;
-}
-
-.postToc > li > a {
-  font-weight: bold;
-  color: #b91c1c;
-}
-
-.postToc > ul > li > a {
-  font-weight: bold;
-}

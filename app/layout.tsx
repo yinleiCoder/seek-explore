@@ -14,6 +14,7 @@ import ProgressBar from '@/components/progressbar'
 import Footer from '@/components/footer'
 import './globals.css'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { CommandMenu } from '@/components/command'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -39,6 +40,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 {children}
                 <Footer />
               </div>
+              <CommandMenu />
               <Toaster />
             </ThemeProvider>
           </AppContextProvider>
