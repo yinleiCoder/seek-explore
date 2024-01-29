@@ -56,7 +56,7 @@ export default function Pixel({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <main className="h-[75vh] w-full flex justify-center items-center bg-white relative overflow-hidden">
+    <main className="h-screen w-full flex justify-center items-center bg-white relative overflow-hidden">
       <div className="w-[70%] uppercase text-[4vw] font-extrabold text-center mix-blend-difference text-white z-10 pointer-events-none">
         {children}
       </div>

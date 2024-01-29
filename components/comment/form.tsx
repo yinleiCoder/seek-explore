@@ -1,16 +1,16 @@
 'use client'
 
+import { FormEvent } from 'react'
 import clsx from 'clsx'
 import toast from 'react-hot-toast'
 import TextareaAutosize from 'react-textarea-autosize'
+import type { User } from '@/types/user'
 import { GoComment } from 'react-icons/go'
 import { CiLock } from 'react-icons/ci'
-import { FormEvent } from 'react'
-import { User } from '@/types/user'
-import Emoji from '../emoji'
-import Button from '../button'
 import { handleGithubLogin } from '@/lib/actions'
 import { useCurrentUser } from '@/hooks/useCurrentUser'
+import Button from '../button'
+import Emoji from '../emoji'
 
 type CommentFormProps = {
   text: string
@@ -42,7 +42,7 @@ export default function CommentForm({
   if (!user) {
     return (
       <div className="flex justify-between">
-        <span className="text-gray-400 text-sm">评论系统由UpStash&Redis驱动</span>
+        <span className="hidden md:block text-gray-400 text-sm">评论系统由UpStash&Redis驱动</span>
         <form
           onSubmit={async e => {
             e.stopPropagation()

@@ -4,7 +4,7 @@ function Kdb({ children, className = '' }: { children: React.ReactNode; classNam
   return (
     <span
       className={clsx(
-        'text-sm bg-zinc-100 rounded px-[6px] dark:text-white dark:bg-zinc-600',
+        'text-sm bg-zinc-100 rounded px-[6px] dark:text-white dark:bg-zinc-700',
         className
       )}
     >

@@ -3,9 +3,9 @@
 import { animate, motion, useMotionValue, useScroll, useTransform } from 'framer-motion'
 import { v4 as uuidv4 } from 'uuid'
 import StackCard from '@/components/card/stackCard'
+import Line from '@/components/line'
 import { News } from '@/types/news'
 import { useEffect, useRef } from 'react'
-import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
 import { dateDiff } from '@/utils/date'
 import { fireSchoolPride } from '@/lib/confetti'
 
@@ -85,48 +85,31 @@ export default function NewsPage() {
   }, [])
 
   return (
-    <main>
-      <section className="w-full h-[100vh] flex flex-col justify-center items-center box-border">
-        <div className="flex flex-col justify-start gap-2">
-          <div className="text-2xl md:text-3xl font-semibold flex items-center gap-2">
-            <span>距离</span>
-            <span>2024年除夕夜💥</span>
-            <span>还有</span>
-            <motion.span
-              className="text-red-900 dark:text-red-600 text-4xl md:text-5xl mx-3"
-              transition={{ type: 'inertia', velocity: 50 }}
-            >
-              {rounded}
-            </motion.span>
-            <span>天</span>
-          </div>
-          <div className="flex items-start">
-            <p className="font-bold">近期重要事项：</p>
-            <ul>
-              <li>2024.03 四川省事业单位笔试</li>
-              <li>2024.03 四川省教师统考笔试</li>
-              <li>2024.05 四川省特岗教师统考笔试</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      <ReactLenis root>
-        <div ref={cardWrapper} className="container max-w-5xl mx-auto p-2 md:p-0">
-          {news.map((newItem, index) => {
-            const targetScale = 1 - (news.length - index) * 0.05
-            return (
-              <StackCard
-                key={newItem.id}
-                index={index} // 每个卡片的唯一索引
-                range={[index * 0.2, 1]} // 滚动数值起始
-                targetScale={targetScale} // 目标缩放
-                progress={scrollYProgress} // 父组件的滚动进度控制内部卡片缩放
-                {...newItem}
-              />
-            )
-          })}
-        </div>
-      </ReactLenis>
-    </main>
+    <>
+      <div className="w-full h-screen">
+        <motion.span
+          className="text-red-900 dark:text-red-600 text-4xl md:text-5xl mx-3"
+          transition={{ type: 'inertia', velocity: 50 }}
+        >
+          {rounded}
+        </motion.span>
+      </div>
+      <Line />
+      <div ref={cardWrapper} className="w-full max-w-7xl mx-auto p-2 md:p-0">
+        {news.map((newItem, index) => {
+          const targetScale = 1 - (news.length - index) * 0.05
+          return (
+            <StackCard
+              key={newItem.id}
+              index={index} // 每个卡片的唯一索引
+              range={[index * 0.2, 1]} // 滚动数值起始
+              targetScale={targetScale} // 目标缩放
+              progress={scrollYProgress} // 父组件的滚动进度控制内部卡片缩放
+            />
+          )
+        })}
+      </div>
+      <div className="w-full h-screen"></div>
+    </>
   )
 }

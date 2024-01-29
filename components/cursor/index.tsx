@@ -10,9 +10,9 @@ function MaskCursor() {
   const size = isHovered ? 400 : 40
 
   return (
-    <section className="h-screen relative">
+    <section className="h-[70vh] relative">
       <motion.div
-        className="mask w-full h-full flex justify-center items-center text-[#afa18f] text-4xl font-bold cursor-default absolute bg-red-600"
+        className="mask w-full h-full flex justify-center items-center text-[#afa18f] text-2xl font-bold cursor-default absolute bg-red-600"
         style={{
           maskImage: `url('/images/mask.svg')`,
           maskRepeat: 'no-repeat',
@@ -27,7 +27,7 @@ function MaskCursor() {
         transition={{ type: 'tween', ease: 'backOut' }}
       >
         <p
-          className="w-[1000px]"
+          className="w-[1000px] leading-10"
           onMouseEnter={() => {
             setIsHovered(true)
           }}
@@ -39,8 +39,8 @@ function MaskCursor() {
           it!
         </p>
       </motion.div>
-      <div className="body w-full h-full flex justify-center items-center text-[#afa18f] text-4xl font-bold cursor-default">
-        <p className="w-[1000px]">
+      <div className="body w-full h-full flex justify-center items-center text-[#afa18f] text-2xl font-bold cursor-default">
+        <p className="w-[1000px] leading-10">
           我是<span className="text-red-600">全栈软件工程师</span>
           ，不是技术大佬，目标是未来能成为计算机大师。透过现象看本质，
           <span className="text-red-600">计算机编程≈内存＋数据结构＋算法</span>

@@ -3,7 +3,7 @@
 import { MouseEventHandler, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
-// 磁吸效果
+// 磁吸组件
 export default function Magnetic({ children }: { children: React.ReactNode }) {
   const magneticRef = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState({ x: 0, y: 0 })

@@ -8,6 +8,7 @@ import { links } from '../navbar'
 import { LiaToolsSolid } from 'react-icons/lia'
 import { CgBrowser } from 'react-icons/cg'
 import { MdDarkMode } from 'react-icons/md'
+import { IoIosCloseCircle } from 'react-icons/io'
 import { IoSunnyOutline } from 'react-icons/io5'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
@@ -15,6 +16,7 @@ import Kdb from '../kdb'
 import { motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { THEME_DARK, THEME_LIGHT } from '@/constants/theme'
+import Button from '../button'
 
 export const CommandMenu = () => {
   const [open, setOpen] = useState(false)
@@ -70,22 +72,21 @@ export const CommandMenu = () => {
 
   return (
     <Command.Dialog
-      className="w-[75%] lg:w-[55%] h-1/2 bg-white rounded-xl overflow-hidden fixed top-[65px] left-[50%] translate-x-[-50%] z-[100] flex flex-col shadow-lg border dark:border-black dark:bg-zinc-800"
+      className="w-[90%] md:w-[70%] lg:w-[75%] xl:w-[50%] h-1/2 bg-white rounded-xl overflow-hidden fixed top-[70px] left-[50%] translate-x-[-50%] z-[100] flex flex-col shadow-lg border dark:border-black dark:bg-zinc-800"
       open={open}
       onOpenChange={setOpen}
       loop
     >
       <div className="flex w-full flex-col gap-2">
         <div className="flex w-full gap-2 items-center p-2 border-b">
-          <span className="text-xl">
-            <IoIosSearch />
-          </span>
+          <Button icon={IoIosSearch} disabled />
           <Command.Input
             value={search}
             onValueChange={setSearch}
             className="flex-1 outline-none border-none p-1 bg-transparent"
             placeholder="开始键入"
           />
+          {search && <Button icon={IoIosCloseCircle} onClick={() => setSearch('')} />}
         </div>
         <div className="text-xs text-gray-500 my-1 p-2">
           <span className="font-bold">提示</span>: 键入

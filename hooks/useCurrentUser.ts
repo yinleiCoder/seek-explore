@@ -2,6 +2,7 @@ import { User } from '@/types/user'
 import { useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react'
 
+// 获取当前的用户
 export const useCurrentUser = () => {
   const session = useSession()
   const [user, setUser] = useState<User | null>({

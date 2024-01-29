@@ -1,13 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import clsx from 'clsx'
-import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
+import { motion } from 'framer-motion'
+import clsx from 'clsx'
 
 function NavLinks({ links }: { links: LinkProp[] }) {
   const pathname = usePathname()
-
   return (
     <>
       {links.map(link => {
@@ -22,7 +21,7 @@ function NavLinks({ links }: { links: LinkProp[] }) {
             {link.name}
             {pathname === link.href && (
               <motion.div
-                className="underline w-1 h-1 relative left-[50%] -translate-x-[50%] rounded-full bg-indigo-500"
+                className="underline w-full h-[2px]  rounded-full bg-indigo-500"
                 layoutId="underline"
               />
             )}

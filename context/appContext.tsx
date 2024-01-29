@@ -2,15 +2,7 @@
 
 import { Action, ActionType, State, initState, reducer } from '@/reducers/AppReducer'
 
-import {
-  Dispatch,
-  ReactNode,
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useReducer,
-} from 'react'
+import { Dispatch, ReactNode, createContext, useContext, useMemo, useReducer } from 'react'
 
 type AppContextProps = {
   state: State

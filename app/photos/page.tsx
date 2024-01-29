@@ -1,7 +1,6 @@
 import { client, urlFor } from '@/lib/sanity'
-import { BlogSimple } from '@/types/blog'
 import { Metadata } from 'next'
-import Image from 'next/image'
+import PhotoGallery from '@/components/gallery'
 
 export const metadata: Metadata = {
   title: '睹物思人',
@@ -22,23 +21,29 @@ async function getData() {
   return data
 }
 
+// const data: BlogSimple[] = await getData()
+{
+  /* <div className="grid grid-cols-3 gap-2">
+  {data.map((post, index) => {
+    return (
+      <div key={index} className="w-full aspect-video relative">
+        <img
+          src={urlFor(post.titleImage).url()}
+          alt=""
+          className="w-full h-full object-cover"
+        />
+      </div>
+    )
+  })}
+</div> */
+}
+
 export default async function PhotoPage() {
-  // const data: BlogSimple[] = await getData()
   return (
-    <main>
-      {/* <div className="grid grid-cols-3 gap-2">
-        {data.map((post, index) => {
-          return (
-            <div key={index} className="w-full aspect-video relative">
-              <img
-                src={urlFor(post.titleImage).url()}
-                alt=""
-                className="w-full h-full object-cover"
-              />
-            </div>
-          )
-        })}
-      </div> */}
-    </main>
+    <>
+      <section className="px-2 min-h-[calc(100vh-56px)]">
+        <PhotoGallery />
+      </section>
+    </>
   )
 }

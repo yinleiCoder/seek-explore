@@ -1,20 +1,20 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { Toaster } from 'react-hot-toast'
+import clsx from 'clsx'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import clsx from 'clsx'
-import Navbar from '@/components/navbar'
-import AppContextProvider from '@/context/appContext'
+import { Toaster } from 'react-hot-toast'
 import { SessionProvider } from 'next-auth/react'
 import { auth } from '@/lib/auth'
+import AppContextProvider from '@/context/appContext'
 import ThemeProvider from '@/provider/ThemeProvider'
+import Navbar from '@/components/navbar'
+import { CommandMenu } from '@/components/command'
 import BackTop from '@/components/top'
 import ProgressBar from '@/components/progressbar'
 import Footer from '@/components/footer'
 import './globals.css'
 import 'react-loading-skeleton/dist/skeleton.css'
-import { CommandMenu } from '@/components/command'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -35,13 +35,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <SessionProvider session={session}>
           <AppContextProvider>
             <ThemeProvider>
-              <div className="w-full duration-300 min-h-screen flex flex-col">
-                <Navbar />
-                {children}
-                <Footer />
-              </div>
-              <CommandMenu />
+              <Navbar />
+              {children}
+              <Footer />
               <Toaster />
+              <CommandMenu />
             </ThemeProvider>
           </AppContextProvider>
         </SessionProvider>

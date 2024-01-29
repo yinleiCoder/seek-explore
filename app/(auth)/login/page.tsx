@@ -19,7 +19,7 @@ function LoginPage() {
   }, [state?.success, router])
 
   return (
-    <div className="flex-1 flex gap-3">
+    <div className="h-[calc(100vh-56px)] flex gap-3">
       <div className="hidden md:block flex-1 relative">
         <Image src="/images/register.webp" alt="pexels.com" fill className="object-cover" />
       </div>

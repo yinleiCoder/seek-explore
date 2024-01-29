@@ -18,7 +18,7 @@ function RegisterPage() {
   }, [state?.success, router])
 
   return (
-    <div className="flex-1 flex justify-center items-center flex-col relative">
+    <div className="h-[calc(100vh-56px)] flex justify-center items-center flex-col relative">
       <Image
         src="/images/login.webp"
         fill

@@ -1,14 +1,14 @@
 'use client'
 
-import Button from '@/components/button'
-import { handleLogout } from '@/lib/actions'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { motion } from 'framer-motion'
+import type { Session } from 'next-auth'
 import { CgBoy } from 'react-icons/cg'
 import { AiOutlineLogout } from 'react-icons/ai'
-import { Session } from 'next-auth'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
+import { handleLogout } from '@/lib/actions'
 import { useCurrentUser } from '@/hooks/useCurrentUser'
+import Button from '@/components/button'
 
 function AuthEntry({ session }: { session: Session | null }) {
   const router = useRouter()
@@ -18,8 +18,8 @@ function AuthEntry({ session }: { session: Session | null }) {
       {session ? (
         <>
           <motion.div
-            className="w-[40px] h-[40px] bg-indigo-500 rounded-full relative overflow-hidden cursor-pointer shadow-md"
-            whileHover={{ scale: [null, 1.5, 1.4] }}
+            className="w-[30px] h-[30px] bg-indigo-500 rounded-full relative overflow-hidden cursor-pointer shadow-md"
+            whileHover={{ scale: [null, 1.2, 1.1] }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.3 }}
           >
@@ -40,7 +40,7 @@ function AuthEntry({ session }: { session: Session | null }) {
           onClick={() => {
             router.push('/login')
           }}
-          className="hover:bg-zinc-200 text-xl p-2 rounded-md"
+          className="hover:bg-zinc-200 dark:hover:bg-zinc-800 text-xl p-2 rounded-md"
         />
       )}
     </>

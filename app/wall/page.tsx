@@ -9,11 +9,11 @@ export const metadata: Metadata = {
 
 export default function WallPage() {
   return (
-    <div className="min-h-[calc(100vh-64px-35px)] flex flex-col p-2 gap-5 container max-w-5xl mx-auto">
-      <section className="w-full mt-2 bgred-300">
-        <AudioPlayer track="/audios/花凋谢.m4a" />
-      </section>
+    <div className="min-h-[calc(100vh-56px)] flex flex-col p-2 md:p-0 gap-5 lg:container lg:max-w-3xl mx-auto">
       <section className="w-full">
+        <AudioPlayer track="/audios/做我的猫.m4a" />
+      </section>
+      <section className="w-full mt-2">
         <Comment placeholder="夜深人静，就把心掏出来缝缝补补，一觉醒来，又是信心百倍🤔" />
       </section>
     </div>

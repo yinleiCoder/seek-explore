@@ -1,12 +1,11 @@
 'use client'
 
-import { CiLocationArrow1 } from 'react-icons/ci'
-import { CgGirl } from 'react-icons/cg'
-import { BsSend } from 'react-icons/bs'
 import { useEffect, useState } from 'react'
-import { useCurrentUser } from '@/hooks/useCurrentUser'
-import toast from 'react-hot-toast'
 import { motion } from 'framer-motion'
+import toast from 'react-hot-toast'
+import { useCurrentUser } from '@/hooks/useCurrentUser'
+import { CiLocationArrow1 } from 'react-icons/ci'
+import { BsSend } from 'react-icons/bs'
 
 // 订阅更新通过email
 export default function Subscribe() {
@@ -35,17 +34,16 @@ export default function Subscribe() {
   }, [user])
 
   return (
-    <div className="mx-auto max-w-2xl my-5 flex flex-col gap-4 border rounded-xl px-2 md:px-6 py-3 md:py-5">
+    <div className="my-3 flex flex-col gap-4 border rounded-xl px-2 md:px-6 py-3 md:py-5">
       <div className="font-bold text-xl flex items-center gap-1">
         <CiLocationArrow1 />
         <h1 className="text-base animate-pulse text-indigo-500">订阅</h1>
       </div>
-      <p className="flex items-center gap-1 text-sm flex-wrap">
+      <p className="text-sm">
         <span className="font-bold text-indigo-500">{user?.name ?? '朋友'}</span>
         ,点击订阅将第一时间推送文章更新、时政消息和四川考编动态
-        <CgGirl />
       </p>
-      <p className="text-xs text-gray-500">邮件订阅功能由React.Email & Resend驱动</p>
+      <p className="text-xs text-gray-500">邮件由React.Email & Resend驱动</p>
       <div className="w-full flex gap-2 items-center">
         <input
           type="email"

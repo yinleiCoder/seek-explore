@@ -8,8 +8,17 @@ import { motion } from 'framer-motion'
 import { useAudio } from '@/hooks/useAudio'
 import Button from '../button'
 import styles from './index.module.css'
+import clsx from 'clsx'
 
-function AudioPlayer({ track }: { track: string }) {
+function AudioPlayer({
+  track,
+  isController = true,
+  className = '',
+}: {
+  track: string
+  isController?: boolean
+  className?: string
+}) {
   const searchParams = useSearchParams()
   const timeJump = searchParams.get('t')
 
@@ -39,13 +48,17 @@ function AudioPlayer({ track }: { track: string }) {
     changeRange()
   }, [timeJump])
 
+  const hidden = {
+    hidden: !isController,
+  }
+
   return (
-    <div className="flex items-center gap-2">
+    <div className={clsx('flex items-center gap-2', className)}>
       <audio ref={audioPlayer} src={track} preload="metadata" onLoadedMetadata={onLoadedMetadata} />
       <section className="flex items-center">
         <Button
           icon={BsArrowLeftShort}
-          className=""
+          className={clsx('', hidden)}
           iconClassName="hover:text-indigo-500"
           onClick={backFive}
         >
@@ -64,14 +77,14 @@ function AudioPlayer({ track }: { track: string }) {
         </motion.div>
         <Button
           icon={BsArrowRightShort}
-          className="flex flex-row-reverse"
+          className={clsx('flex flex-row-reverse', hidden)}
           iconClassName="hover:text-indigo-500"
           onClick={forwardFive}
         >
           5
         </Button>
       </section>
-      <section className="flex-1 flex items-center gap-2">
+      <section className={clsx('flex-1 flex items-center gap-2', hidden)}>
         <span>{calculateTime(currentTime)}</span>
         <div className="flex-1 flex items-center">
           <input

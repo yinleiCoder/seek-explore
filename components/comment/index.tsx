@@ -12,7 +12,7 @@ export default function Comment({ placeholder }: { placeholder?: string }) {
   const { text, setText, comments, onSubmit, onDelete } = useComments(token ?? '')
 
   return (
-    <div className="w-full">
+    <div className="w-full flex flex-col gap-2">
       <CommentForm onSubmit={onSubmit} text={text} setText={setText} placeholder={placeholder} />
       <CommentList comments={comments} onDelete={onDelete} />
     </div>

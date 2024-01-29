@@ -1,34 +1,17 @@
-import { VideoPlayer } from '@/components/videoPlayer'
-import { auth } from '@/lib/auth'
 import { Metadata } from 'next'
-import Link from 'next/link'
-import { FaLock } from 'react-icons/fa6'
+import { VideoPlayer } from '@/components/videoPlayer'
 
 export const metadata: Metadata = {
-  title: '雅俗共赏',
-  description: '一个人看片有什么意思，一起来啊！',
+  title: '教书育人',
+  description: '视频科普，不止是计算机哦！',
 }
 
 export default async function WatchPage() {
-  const session = await auth()
-  if (!session) {
-    return (
-      <main className="w-full flex-1 flex items-center justify-center">
-        <Link href={'/login'}>
-          <span className="text-4xl hover:text-indigo-400 cursor-pointer">
-            <FaLock />
-          </span>
-        </Link>
-      </main>
-    )
-  }
-
   return (
-    <main className="container max-w-5xl mx-auto flex-1 flex flex-col items-center">
-      <section className="w-full">
+    <>
+      <div className="mx-auto lg:container lg:max-w-6xl">
         <VideoPlayer />
-      </section>
-      <section>播放列表</section>
-    </main>
+      </div>
+    </>
   )
 }

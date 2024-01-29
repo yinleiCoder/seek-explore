@@ -1,7 +1,7 @@
 import confetti from 'canvas-confetti'
 
 // 庆典烟花
-const end = Date.now() + 20 * 1000
+const end = Date.now() + 10 * 1000
 export function fireSchoolPride() {
   const colors = ['#bb0000', '#FAEF5D']
   confetti({
