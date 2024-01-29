@@ -4,7 +4,7 @@ import React, { useState, useRef } from 'react'
 import * as THREE from 'three'
 import { TextureLoader } from 'three'
 import { Canvas, useFrame, useLoader, ThreeElements } from '@react-three/fiber'
-import { OrbitControls, Environment, Float, Backdrop } from '@react-three/drei'
+import { OrbitControls, Environment, Float, Backdrop, Stage } from '@react-three/drei'
 import Model from './model'
 
 // function Cable({ start, end, v1 = new THREE.Vector3(), v2 = new THREE.Vector3() }) {
@@ -16,7 +16,7 @@ import Model from './model'
 function FloatingShapes() {
   return (
     <div className="w-full h-full">
-      <Canvas orthographic camera={{ position: [0, 0, 10], zoom: 60 }}>
+      <Canvas orthographic camera={{ position: [0, 0, 10], zoom: 30 }}>
         <ambientLight intensity={0.2} />
         <directionalLight position={[-10, 0, -5]} intensity={1} color="red" />
         <spotLight
@@ -27,17 +27,19 @@ function FloatingShapes() {
           castShadow
           color="#0c8cbf"
         />
-        <Float
-          position={[1, 1.1, -0.5]}
-          rotation={[Math.PI / 3.5, 0, 0]}
-          rotationIntensity={4}
-          floatIntensity={6}
-          speed={1.5}
-        >
-          <Model></Model>
-        </Float>
-        <Environment path="/assets" files="potsdamer_platz_1k.hdr" preset="city" />
-        <OrbitControls makeDefault enableZoom={false} />
+        <Stage environment={null}>
+          <Float
+            position={[1, 1.1, -0.5]}
+            rotation={[Math.PI / 3.5, 0, 0]}
+            rotationIntensity={4}
+            floatIntensity={6}
+            speed={1.5}
+          >
+            <Model></Model>
+          </Float>
+          <Environment path="/assets/" files="potsdamer_platz_1k.hdr" />
+          <OrbitControls makeDefault enableZoom={false} />
+        </Stage>
       </Canvas>
     </div>
   )

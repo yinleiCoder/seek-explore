@@ -9,6 +9,10 @@ tag: 计算机
 
 ## Contents
 
+# Blender
+
+<!-- ![](/images/web3d) -->
+
 # WebGL
 
 ## WebGL与Canvas
@@ -47,6 +51,9 @@ tag: 计算机
 
 # 学习路线
 
+## Blender
+
+
 ## ThreeJS
 
 > WebGL进阶
@@ -72,8 +79,6 @@ https://github.com/pmndrs/drei
 https://github.com/pmndrs/gltfjsx
 
 在线网站：https://gltf.pmnd.rs/
-
-# 参考资料
 
 ## Framer Motion 3D
 
