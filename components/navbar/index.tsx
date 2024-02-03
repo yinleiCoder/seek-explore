@@ -19,12 +19,12 @@ export const links: LinkProp[] = [
   {
     name: '雅俗共赏',
     href: '/photos',
-    className: '',
+    className: 'hidden md:inline-block',
   },
   {
     name: '教书育人',
     href: '/watch',
-    className: 'hidden md:inline-block',
+    className: '',
   },
   {
     name: '留言墙',

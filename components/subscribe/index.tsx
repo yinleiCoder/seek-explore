@@ -37,10 +37,10 @@ export default function Subscribe() {
     <div className="my-3 flex flex-col gap-4 border rounded-xl px-2 md:px-6 py-3 md:py-5">
       <div className="font-bold text-xl flex items-center gap-1">
         <CiLocationArrow1 />
-        <h1 className="text-base animate-pulse text-indigo-500">订阅</h1>
+        <h1 className="text-base animate-pulse text-primary">订阅</h1>
       </div>
       <p className="text-sm">
-        <span className="font-bold text-indigo-500">{user?.name ?? '朋友'}</span>
+        <span className="font-bold text-primary">{user?.name ?? '朋友'}</span>
         ,点击订阅将第一时间推送文章更新、时政消息和四川考编动态
       </p>
       <p className="text-xs text-gray-500">邮件由React.Email & Resend驱动</p>
@@ -56,7 +56,7 @@ export default function Subscribe() {
           }}
         />
         <motion.button
-          className="bg-indigo-500 p-2 text-white hover:bg-indigo-400 rounded-full shadow-md"
+          className="bg-primary p-2 text-white hover:bg-primary/80 rounded-full shadow-md"
           disabled={!user}
           onClick={handleSendEmail}
           whileHover={{ scale: 1.1 }}

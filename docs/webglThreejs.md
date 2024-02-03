@@ -64,7 +64,7 @@ https://threejs.org/docs/index.html#manual/zh/introduction/Creating-a-scene
 
 > React-three-fiber 是 three.js 的 React 渲染器。使用可重用的、独立的组件以声明方式构建场景，这些组件对状态做出反应，易于交互，并且可以参与 React 的生态系统
 
-https://github.com/pmndrs/drei
+https://docs.pmnd.rs/react-three-fiber/api/canvas
 
 ## Drei 
 

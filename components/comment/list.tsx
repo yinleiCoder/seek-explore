@@ -34,7 +34,7 @@ export default function CommentList({ comments, onDelete }: CommentListProps) {
                 <div className="flex items-center gap-1">
                   <span className="font-bold">{comment.user.name}</span>
                   {isAuthor && (
-                    <span className="text-xs bg-indigo-200 text-indigo-600 rounded px-1 py-[1px]">
+                    <span className="text-xs bg-primary/70 text-primary rounded px-1 py-[1px]">
                       我
                     </span>
                   )}

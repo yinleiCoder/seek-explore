@@ -63,5 +63,13 @@ tag: 计算机
 
 > FPS游戏逆向，编写外挂，如Steam上的CSGO2
 
+## 参考资料
 
+- [Guided Hacking](https://www.youtube.com/@GuidedHacking/videos)
+- [Github Osiris](https://github.com/danielkrupinski/Osiris)
+
+# CS2外挂C++编写
+
+- [基址Offset](https://github.com/frk1/hazedumper) 
+- [基址Offset社区](https://www.unknowncheats.me/forum/counterstrike-global-offensive/169351-haze-dumper-json-config-based-offset-dumper.html) 
 

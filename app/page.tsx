@@ -27,7 +27,7 @@ const newsMarquee = [
 
 // {skills.map(skill => (
 //   <Magnetic key={skill}>
-//     <span className="border rounded-md px-2 py-1 cursor-pointer duration-300 hover:bg-indigo-400">
+//     <span className="border rounded-md px-2 py-1 cursor-pointer duration-300 hover:bg-primary">
 //       {skill}
 //     </span>
 //   </Magnetic>
@@ -37,10 +37,10 @@ export default function HomePage() {
   const posts = getAllPosts(['title', 'description', 'date', 'slug'])
   return (
     <>
-      <section className="w-full h-[calc(100vh-56px-40px)] flex">
+      <section className="w-full h-[50vh] lg:h-[calc(100vh-56px-40px)] flex">
         <FloatingShapes />
       </section>
-      <Marquee className="h-10 bg-zinc-900 dark:bg-zinc-800 text-white font-bold text-sm">
+      <Marquee className="h-8 lg:h-10 bg-zinc-900 dark:bg-zinc-800 text-white font-bold text-sm">
         {newsMarquee.map((item, index) => {
           return (
             <span className="mx-10" key={index}>

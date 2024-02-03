@@ -82,7 +82,7 @@ export default function CommentForm({
       <div className="flex justify-between items-start my-2">
         <Emoji onSelect={(emoji: string) => setText(`${text}${emoji}`)} />
         <Button
-          className="bg-indigo-500 text-white px-4 py-1 duration-300 hover:bg-indigo-400"
+          className="bg-primary text-white px-4 py-1 duration-300 hover:bg-primary/80"
           icon={GoComment}
           type="submit"
         >

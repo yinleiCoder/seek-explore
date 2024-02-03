@@ -18,7 +18,7 @@ function AuthEntry({ session }: { session: Session | null }) {
       {session ? (
         <>
           <motion.div
-            className="w-[30px] h-[30px] bg-indigo-500 rounded-full relative overflow-hidden cursor-pointer shadow-md"
+            className="w-[30px] h-[30px] bg-primary rounded-full relative overflow-hidden cursor-pointer shadow-md"
             whileHover={{ scale: [null, 1.2, 1.1] }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.3 }}

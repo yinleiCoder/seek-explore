@@ -14,14 +14,14 @@ function NavLinks({ links }: { links: LinkProp[] }) {
           <Link
             key={link.name}
             href={link.href}
-            className={clsx(link.className, 'hover:text-indigo-400', {
-              'text-indigo-500': pathname === link.href,
+            className={clsx(link.className, 'hover:text-primary', {
+              'text-primary': pathname === link.href,
             })}
           >
             {link.name}
             {pathname === link.href && (
               <motion.div
-                className="underline w-full h-[2px]  rounded-full bg-indigo-500"
+                className="underline w-full h-[2px]  rounded-full bg-primary"
                 layoutId="underline"
               />
             )}

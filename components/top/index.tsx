@@ -43,7 +43,7 @@ export default function BackTop() {
       })}
     >
       <motion.div
-        className="bg-indigo-500 hover:bg-indigo-400 rounded-full overflow-hidden font-bold text-white text-2xl p-3 cursor-pointer"
+        className="bg-primary rounded-full overflow-hidden font-bold text-white text-2xl p-3 cursor-pointer"
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 0.9 }}
         transition={{ type: 'spring', stiffness: 400, damping: 17 }}

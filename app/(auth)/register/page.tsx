@@ -26,7 +26,7 @@ function RegisterPage() {
         className="object-cover z-[-10]"
       />
       <div className="w-[85vw] md:w-[30vw] shadow-md rounded-md overflow-hidden px-6 py-8 bg-zinc-100/50 dark:bg-zinc-800/50">
-        <span className="text-3xl flex justify-center mb-3 hover:text-indigo-500">
+        <span className="text-3xl flex justify-center mb-3 hover:text-primary">
           <CgBoy />
         </span>
         <form action={formAction} className="flex flex-col gap-2 w-full">
@@ -55,11 +55,11 @@ function RegisterPage() {
             className="w-full bg-zinc-200 px-3 py-2 rounded-md outline-none border-none dark:bg-zinc-800"
           />
           <span className="text-sm text-red-900">{state?.error}</span>
-          <Button className="w-full bg-indigo-500 px-3 py-2 text-center text-white rounded-md font-bold flex justify-center">
+          <Button className="w-full bg-primary px-3 py-2 text-center text-white rounded-md font-bold flex justify-center">
             注册
           </Button>
           <Link href={'/login'} className="text-gray-500 text-sm group">
-            <span className="font-bold underline group-hover:text-indigo-500">登录</span>,发现不同
+            <span className="font-bold underline group-hover:text-primary">登录</span>,发现不同
           </Link>
         </form>
       </div>

@@ -8,7 +8,7 @@ export default function Footer() {
       <a target="_blank" href="https://github.com/yinleiCoder" className="flex items-center">
         <Button
           icon={IoLogoGithub}
-          className="hover:text-zinc-800 dark:hover:text-indigo-500 font-bold"
+          className="hover:text-zinc-800 dark:hover:text-primary font-bold"
         >
           Github
         </Button>

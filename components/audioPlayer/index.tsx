@@ -59,7 +59,7 @@ function AudioPlayer({
         <Button
           icon={BsArrowLeftShort}
           className={clsx('', hidden)}
-          iconClassName="hover:text-indigo-500"
+          iconClassName="hover:text-primary"
           onClick={backFive}
         >
           5
@@ -72,13 +72,13 @@ function AudioPlayer({
           <Button
             icon={isPlaying ? FaPause : FaPlay}
             onClick={togglePlayState}
-            className="bg-indigo-500 text-white rounded-full p-3 flex items-center justify-center mx-3 shadow-md shadow-indigo-500"
+            className="bg-primary text-white rounded-full p-3 flex items-center justify-center mx-3 shadow-md shadow-primary"
           />
         </motion.div>
         <Button
           icon={BsArrowRightShort}
           className={clsx('flex flex-row-reverse', hidden)}
-          iconClassName="hover:text-indigo-500"
+          iconClassName="hover:text-primary"
           onClick={forwardFive}
         >
           5

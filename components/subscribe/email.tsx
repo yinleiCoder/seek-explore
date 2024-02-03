@@ -51,7 +51,7 @@ export const EmailTemplate = ({ userName }: EmailTemplateProps) => (
             <Text>
               <Button
                 href={`${baseUrl}/news`}
-                className="bg-indigo-500 px-2 py-1 rounded-md text-white"
+                className="bg-primary px-2 py-1 rounded-md text-white"
               >
                 点击查看消息原文
               </Button>

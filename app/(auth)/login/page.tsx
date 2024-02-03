@@ -25,13 +25,13 @@ function LoginPage() {
       </div>
       <div className="flex-[2] flex justify-center items-center">
         <div className="flex flex-col gap-3 bg-white/90 dark:bg-zinc-900 duration-300 items-center w-3/4 md:w-2/4">
-          <span className="text-3xl mb-3 hover:text-indigo-500">
+          <span className="text-3xl mb-3 hover:text-primary">
             <CgGirl />
           </span>
           <form action={handleGithubLogin} className="w-full">
             <Button
               icon={FaGithub}
-              className="bg-zinc-900 w-full text-white px-4 py-2 rounded-md dark:bg-indigo-500 shadow-md hover:bg-zinc-700 dark:hover:bg-indigo-400 flex justify-center items-center gap-2"
+              className="bg-zinc-900 w-full text-white px-4 py-2 rounded-md dark:bg-primary shadow-md hover:bg-zinc-700 dark:hover:bg-primary flex justify-center items-center gap-2"
             >
               使用Github帐户登录
             </Button>
@@ -51,12 +51,12 @@ function LoginPage() {
               className="w-full bg-zinc-200 dark:bg-zinc-800 px-3 py-2 rounded-md border-none outline-none"
             />
             <span className="text-red-900 text-sm">{state?.error}</span>
-            <Button className="bg-indigo-500 w-full shadow-md flex justify-center px-4 py-2 text-white font-bold hover:bg-indigo-400">
+            <Button className="bg-primary w-full shadow-md flex justify-center px-4 py-2 text-white font-bold hover:bg-primary/80">
               登录
             </Button>
             <Link href={'/register'} className="text-end self-end text-gray-500 text-sm group">
               发现不一样的世界,
-              <span className="font-bold underline group-hover:text-indigo-500">注册</span>
+              <span className="font-bold underline group-hover:text-primary">注册</span>
               即刻启程
             </Link>
           </form>
