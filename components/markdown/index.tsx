@@ -31,6 +31,7 @@ function Markdown({ children, ...props }: Options) {
               style={atomDark}
               showLineNumbers
               showInlineLineNumbers
+              customStyle={{ padding: 0, borderRadius: '8px' }}
             >
               {String(children).replace(/\n$/, '')}
             </SyntaxHighlighter>

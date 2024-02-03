@@ -8,6 +8,7 @@ import { News } from '@/types/news'
 import { useEffect, useRef } from 'react'
 import { dateDiff } from '@/utils/date'
 import { fireSchoolPride } from '@/lib/confetti'
+import Cube3D from '@/components/cube'
 
 const news: News[] = [
   {
@@ -86,7 +87,8 @@ export default function NewsPage() {
 
   return (
     <>
-      <div className="w-full h-screen">
+      <div className="w-full h-screen flex">
+        <Cube3D />
         <motion.span
           className="text-red-900 dark:text-red-600 text-4xl md:text-5xl mx-3"
           transition={{ type: 'inertia', velocity: 50 }}

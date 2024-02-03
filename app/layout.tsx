@@ -30,7 +30,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const session = await auth()
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={clsx(inter.className, 'bg-white dark:bg-zinc-900 duration-300')}>
+      <body className={clsx(inter.className, 'bg-white dark:bg-zinc-900')}>
         <ProgressBar />
         <SessionProvider session={session}>
           <AppContextProvider>

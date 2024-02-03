@@ -10,10 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#EBD9B4',
-      },
-      backgroundImage: {
-        main: 'linear-gradient(to bottom,#fff6df, rgba(255,246,223,0))',
+        primary: '#AAD9BB',
       },
     },
   },

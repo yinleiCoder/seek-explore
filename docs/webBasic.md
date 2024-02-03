@@ -53,7 +53,6 @@ Vue、React等框架是：
     </CartList>
 </App>
 
-
 //data.vue
 <template>
     <div>

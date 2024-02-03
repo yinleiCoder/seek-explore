@@ -12,7 +12,7 @@ export function getPostSlugs() {
 }
 
 // 根据slug获取某个帖子
-export function getPostBySlug(slug: string, fields: string[] = []): Post {
+export function getPostBySlug(slug: string, fields: string[] = []) {
   const realSlug = slug.replace(/\.md$/, '')
   const fullPath = path.join(postsDirectory, `${realSlug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
@@ -29,14 +29,30 @@ export function getPostBySlug(slug: string, fields: string[] = []): Post {
       post[field] = data[field]
     }
   })
-  return post
+  // 解析toc
+  const tocRegularExp = /\n(?<flag>#{1,6})\s+(?<content>.+)/g
+  const headings = Array.from(content.matchAll(tocRegularExp)).map(({ groups }) => {
+    const flag = groups?.flag
+    const tocContent = groups?.content
+    return {
+      level: flag?.length == 1 ? 'one' : flag?.length == 2 ? 'two' : 'three',
+      text: tocContent,
+    }
+  })
+  const filteredHeadings = headings.filter(
+    heading => !(heading.text?.includes('Contents') && heading.level == 'two')
+  )
+  return {
+    post,
+    toc: filteredHeadings,
+  }
 }
 
 // 获取帖子列表
 export function getAllPosts(fields: string[] = []) {
   const slugs = getPostSlugs()
   const posts = slugs
-    .map(slug => getPostBySlug(slug, fields))
+    .map(slug => getPostBySlug(slug, fields).post)
     .sort((post1, post2) => -dateDiff(post1.date ?? new Date(), post2.date ?? new Date()))
   return posts
 }

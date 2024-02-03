@@ -1,9 +1,9 @@
 .progressBar {
     --bar-bg:rgb(244, 244, 245);
     --seek-before-width: 0;
-    --seek-before-color:#EBD9B4;
-    --knobby: #EBD9B4;
-    --selectedKnobby: rgba(255,246,223,1);
+    --seek-before-color:#AAD9BB;
+    --knobby: #AAD9BB;
+    --selectedKnobby: #AAD9BB;
 
     appearance: none;
     background: var(--bar-bg);

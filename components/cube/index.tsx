@@ -32,12 +32,12 @@ function Cube() {
     meshRef.current.rotation.z += delta * 0.1
   })
 
-  const texture_1 = useLoader(TextureLoader, '/assets/cube1.jpg')
-  const texture_2 = useLoader(TextureLoader, '/assets/cube2.jpg')
-  const texture_3 = useLoader(TextureLoader, '/assets/cube3.jpg')
-  const texture_4 = useLoader(TextureLoader, '/assets/cube4.jpg')
-  const texture_5 = useLoader(TextureLoader, '/assets/cube5.jpg')
-  const texture_6 = useLoader(TextureLoader, '/assets/cube6.jpg')
+  // const texture_1 = useLoader(TextureLoader, '/assets/cube1.jpg')
+  // const texture_2 = useLoader(TextureLoader, '/assets/cube2.jpg')
+  // const texture_3 = useLoader(TextureLoader, '/assets/cube3.jpg')
+  // const texture_4 = useLoader(TextureLoader, '/assets/cube4.jpg')
+  // const texture_5 = useLoader(TextureLoader, '/assets/cube5.jpg')
+  // const texture_6 = useLoader(TextureLoader, '/assets/cube6.jpg')
   return (
     <mesh ref={meshRef}>
       <boxGeometry args={[2.5, 2.5, 2.5]} />

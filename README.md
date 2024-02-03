@@ -2,11 +2,13 @@
 
 面向信仰编程，记录我学过的一切。
 
+![Yin Lei Blog](https://www.yinlei.pro/images/userAvatar.png)
+
 ## Feature
 
 - 随笔科普
-- 公考时间轴式时讯及重大考试动态倒计时
-- Google认证登录
+- 视频科普
+- OAuth认证
 
 ## Related
 

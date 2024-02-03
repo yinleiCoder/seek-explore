@@ -21,7 +21,7 @@ export default function CommentList({ comments, onDelete }: CommentListProps) {
           const isAuthor = user && user.uid === comment.user.uid
           return (
             <div className="flex gap-3 items-start" key={comment.id}>
-              <div className="flex-shrink-0 border-2 border-black rounded-full overflow-hidden">
+              <div className="flex-shrink-0 rounded-full overflow-hidden">
                 <motion.img
                   src={comment.user.image ?? ''}
                   className="w-10 aspect-square rounded-full"
@@ -32,7 +32,7 @@ export default function CommentList({ comments, onDelete }: CommentListProps) {
               </div>
               <div className="flex flex-col gap-1 ">
                 <div className="flex items-center gap-1">
-                  <span className="font-bold">{comment.user.name}</span>
+                  <span className="font-medium">{comment.user.name}</span>
                   {isAuthor && (
                     <span className="text-xs bg-primary/70 text-primary rounded px-1 py-[1px]">
                       我

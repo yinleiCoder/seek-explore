@@ -49,7 +49,6 @@ export default function HomePage() {
           )
         })}
       </Marquee>
-
       <section className="lg:container lg:max-w-3xl lg:mx-auto p-3 lg:p-0 my-2">
         <CardList posts={posts} />
         <Subscribe />

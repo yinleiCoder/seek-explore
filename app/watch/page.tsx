@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default async function WatchPage() {
   return (
     <main className="flex flex-col lg:flex-row w-full min-h-[calc(100vh-56px)]">
-      <div className="w-full lg:w-[30%] xl:w-[25%] border-b flex flex-col items-center gap-3 p-5 justify-center bg-[#F9EFDB] lg:rounded-xl lg:ml-3 lg:mt-3 lg:mb-3">
+      <div className="w-full lg:w-[30%] xl:w-[25%] border-b flex flex-col items-center gap-3 p-5 justify-center bg-[#F9EFDB] lg:rounded-xl lg:ml-3 lg:mb-3">
         <div className="w-full flex-1 flex lg:flex-col gap-3">
           <div className="flex-1 w-full aspect-video relative rounded-xl overflow-hidden">
             <Image
@@ -54,7 +54,7 @@ export default async function WatchPage() {
           </Button>
         </div>
       </div>
-      <div className="flex-1 p-5">
+      <div className="flex-1 px-5">
         <div className="my-2">
           <Button icon={MdSort} className="text-sm hover:bg-zinc-100 p-1">
             排序
