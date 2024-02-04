@@ -10,7 +10,7 @@ function MaskCursor() {
   const size = isHovered ? 400 : 40
 
   return (
-    <section className="h-[70vh] relative">
+    <section className="h-[100vh] relative">
       <motion.div
         className="mask w-full h-full flex justify-center items-center text-[#afa18f] text-2xl font-bold cursor-default absolute bg-red-600"
         style={{

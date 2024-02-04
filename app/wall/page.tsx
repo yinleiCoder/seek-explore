@@ -8,6 +8,7 @@ import Comment from '@/components/comment'
 
 export default function WallPage() {
   useEffect(() => {
+    // 平滑滚动
     const lenis = new Lenis()
     function raf(time: any) {
       lenis.raf(time)
@@ -15,6 +16,7 @@ export default function WallPage() {
     }
     requestAnimationFrame(raf)
   }, [])
+
   return (
     <main className="w-full">
       <ZoomParallax />

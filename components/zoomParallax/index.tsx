@@ -12,7 +12,7 @@ import Wall6 from '../../public/images/wall/wall6.webp'
 import Wall7 from '../../public/images/wall/wall7.webp'
 
 /**
- * 不动画img的父元素，而是动画img的父元素的父元素，这样就可以解决img
+ * 不动画img的父元素，而是动画img的父元素的父元素，这样就可以解决img scale时布局变形的问题
  */
 function ZoomParallax() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -25,7 +25,6 @@ function ZoomParallax() {
   const scale6 = useTransform(scrollYProgress, [0, 1], [1, 6])
   const scale7 = useTransform(scrollYProgress, [0, 1], [1, 7])
   const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8])
-  const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9])
 
   const pictures = [
     {
@@ -45,7 +44,7 @@ function ZoomParallax() {
     },
     {
       src: Wall3,
-      scale: scale8,
+      scale: scale6,
       imageContainerStyle: {
         top: '-10vh',
         left: '-25vw',
@@ -65,7 +64,7 @@ function ZoomParallax() {
     },
     {
       src: Wall5,
-      scale: scale6,
+      scale: scale5,
       imageContainerStyle: {
         top: '27.5vh',
         left: '5vw',
@@ -75,7 +74,7 @@ function ZoomParallax() {
     },
     {
       src: Wall2,
-      scale: scale9,
+      scale: scale5,
       imageContainerStyle: {
         top: '27.5vh',
         left: '-22.5vw',
@@ -87,10 +86,10 @@ function ZoomParallax() {
       src: Wall1,
       scale: scale5,
       imageContainerStyle: {
-        top: '27.5vh',
-        left: '25vw',
-        width: '15vw',
-        height: '15vh',
+        top: '32vh',
+        left: '28vw',
+        width: '20vw',
+        height: '30vh',
       },
     },
   ]

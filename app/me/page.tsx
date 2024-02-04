@@ -6,7 +6,7 @@ import { AudioPlayer } from '@/components/audioPlayer'
 
 export const metadata: Metadata = {
   title: '了解我',
-  description: '联系我？与我合作？期待您的来电',
+  description: '一名热爱C++的全栈软件工程师',
 }
 
 const Pixel = dynamic(() => import('../../components/pixel'), {
