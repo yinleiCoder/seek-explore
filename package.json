@@ -19,7 +19,7 @@
     "@react-three/drei": "^9.96.5",
     "@react-three/fiber": "^8.15.15",
     "@sanity/image-url": "^1.0.2",
-    "@studio-freight/lenis": "^1.0.33",
+    "@studio-freight/lenis": "^1.0.34",
     "@studio-freight/react-lenis": "^0.0.43",
     "@types/canvas-confetti": "^1.6.4",
     "@types/react-syntax-highlighter": "^15.5.11",
