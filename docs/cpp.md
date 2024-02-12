@@ -63,13 +63,81 @@ tag: 计算机
 
 > FPS游戏逆向，编写外挂，如Steam上的CSGO2
 
+## 熟悉的工作环境和相关工具
+
+### Visual Studio 2022
+
+> https://visualstudio.microsoft.com/zh-hans/downloads/
+
+Visual Studio简称VS是微软公司开发的工具包产品，是目前最流行的Windows平台应用程序集成开发环境IDE。
+
+### GCC
+
+GCC（GNU Compiler Collection, GNU编译套件）是由GNU开发的支持C/C++的编译器，是一个跨平台的编译器。在软件逆向工程中，经常会遇见使用GCC编译的应用程序。在Windows上安装GCC可以选择安装Cygwin或MinGW-w64。
+
+#### MinGW-w64
+
+> https://www.mingw-w64.org/  
+> https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/
+
+在安装的时候，需要选择编译器的最新版本，Architecture CPU选择x86-64，Threads线程API选择win32、Exception异常处理库选择sjlj库。
+
+同时，还需要配置环境变量。将MinGW-w64的bin目录添加到Path变量中，
+
+通过如下命令验证gcc是否安装成功：
+
+```
+gcc -v
+```
+
+### Clang编译器
+
+> https://releases.llvm.org/download.html
+
+将Clang安装路径的bin目录添加到环境变量Path中，为了防止与Visual Studio中的Clang编译器冲突，可调整环境变量顺序。通过如下命令检查是否安装成功：
+
+```
+clang -v
+```
+
+### 调试工具OllyDbg
+
+> https://www.ollydbg.de/
+
+在逆向分析领域，分析者利用调试工具来分析软件的行为并验证分析的结果。操作系统提供了完善的调试接口，通过各类调试工具可以方便观察和控制目标软件。在使用调试工具分析程序的过程中，程序会按调试者的意愿，以指令为单位执行。调试者可以随时中断目标的指令流程，以观察相关计算结果和当前设备状况，也可以随时执行程序的后续指令。使用调试工具加载程序并一边运行一边分析的过程，称为**动态分析**。
+
+- 有源码的程序，使用Visual Studio调试，将C++源码反编译
+- 无源码的程序，使用OllyDbg调试分析
+
+### 调试工具x64dbg
+
+> https://x64dbg.com/
+
+OllyDbg不支持64位应用程序的调试，x64dbg是一个开源的调试器，支持32/64位程序的调试。
+
+### 调试工具WinDbg
+
+> https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/  
+> https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/windbg-overview  
+> https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/getting-started-with-windows-debugging
+
+WinDbg是微软出品的支持32/64位程序调试的免费调试器，支持源码的、无源码的程序调试，可以调试应用程序且可进行内核调试。还可以从微软的符号服务器中获取系统符号文件，使应用程序或内核调试的反汇编代码可读性更好。
+
+### 反汇编静态分析工具IDA
+
+动态分析的过程中，调试器加载程序，并以调试模式运行起来，分析者可以在执行过程中观察程序的执行流程和计算结果。但在实际的分析中，很多场合不方便运行目标，这时候需要直接把程序的二进制代码翻译成汇编语言，方便程序员阅读。由目标软件的二进制代码到汇编代码的翻译过程，称为**反汇编**。
+
+反汇编静态分析工具IDA，它的图标是被称为“世界上第一位程序员”的Ada Lovelace的头像。
+
+
 ## 参考资料
 
 - [Guided Hacking](https://www.youtube.com/@GuidedHacking/videos)
 - [Github Osiris](https://github.com/danielkrupinski/Osiris)
 
-# CS2外挂C++编写
+# CS2外挂编写
 
 - [基址Offset](https://github.com/frk1/hazedumper) 
 - [基址Offset社区](https://www.unknowncheats.me/forum/counterstrike-global-offensive/169351-haze-dumper-json-config-based-offset-dumper.html) 
 
+笔者编写的CS2游戏外挂已开源，采用ImGui+Directx11绘制，代码已托管在[Github](https://github.com/yinleiCoder/cs2-cheat-cpp)上，欢迎Star!

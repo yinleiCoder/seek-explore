@@ -8,7 +8,7 @@ import Wall2 from '../../public/images/wall/wall2.webp'
 import Wall3 from '../../public/images/wall/wall3.webp'
 import Wall4 from '../../public/images/wall/wall4.webp'
 import Wall5 from '../../public/images/wall/wall5.webp'
-import Wall6 from '../../public/images/wall/wall6.webp'
+import Wall6 from '../../public/images/wall/wall6.png'
 import Wall7 from '../../public/images/wall/wall7.webp'
 
 /**
@@ -24,7 +24,6 @@ function ZoomParallax() {
   const scale5 = useTransform(scrollYProgress, [0, 1], [1, 5])
   const scale6 = useTransform(scrollYProgress, [0, 1], [1, 6])
   const scale7 = useTransform(scrollYProgress, [0, 1], [1, 7])
-  const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8])
 
   const pictures = [
     {
@@ -47,7 +46,7 @@ function ZoomParallax() {
       scale: scale6,
       imageContainerStyle: {
         top: '-10vh',
-        left: '-25vw',
+        left: '-24vw',
         width: '20vw',
         height: '45vh',
       },
@@ -66,10 +65,10 @@ function ZoomParallax() {
       src: Wall5,
       scale: scale5,
       imageContainerStyle: {
-        top: '27.5vh',
+        top: '29vh',
         left: '5vw',
         width: '20vw',
-        height: '25vh',
+        height: '28vh',
       },
     },
     {
@@ -87,7 +86,7 @@ function ZoomParallax() {
       scale: scale5,
       imageContainerStyle: {
         top: '32vh',
-        left: '28vw',
+        left: '27vw',
         width: '20vw',
         height: '30vh',
       },

@@ -17,7 +17,7 @@ export default function MePage() {
   return (
     <>
       <AudioPlayer
-        track={'/audios/不只是场梦.m4a'}
+        track={'/audios/雀台.m4a'}
         isController={false}
         className="fixed left-4 bottom-4 z-[99]"
       />
