@@ -5,9 +5,9 @@ date: '2024-01-13 10:34:30'
 tag: 计算机
 ---
 
-## Contents
-
 > 学C++在某种程度上和宗教信仰比肩，要有那种**踏实（务实，不要浮在知识的表面）**地对知识执着地渴求，一方面要去**思考**，另一方面要**多动手**。尤其是作为软件工程师，要求的动手能力非常强；学C++的过程就是看透事物本质的过程，一定要知道这在内存中到底是怎么回事。
+
+## Contents
 
 # C++
 
@@ -129,15 +129,56 @@ WinDbg是微软出品的支持32/64位程序调试的免费调试器，支持源
 
 反汇编静态分析工具IDA，它的图标是被称为“世界上第一位程序员”的Ada Lovelace的头像。
 
+## 游戏外挂需要编写驱动程序
+
+运行在内核中的程序也称为**驱动程序kernel drivers**。并且每个驱动程序共享相同的内存空间。当内核驱动程序出现问题，会得到**蓝屏**，你的整个OS崩溃。
+
+当你想运行一个用户模式的应用程序，操作系统将为此分配虚拟内存用于该程序，操作系统实际上正在创建一个虚拟化环境，通过提供每个应用程序自己的虚拟内存，他们无法访问其他进程的内存，除非你正在kernel cheat。
+
+编写内核驱动程序是为了避免使用windows api。因为内核级别的反作弊可以监控和阻止windows api的使用并让你不在他们的游戏上调用读写进程内存。解决方案是创建自己的读写内存方法，以便内核无法监视我们正在尝试的作弊行为。驱动程序本身基本上是无用的，内核驱动程序和用户模式下的应用程序驱动程序以类似的事件的方式设计，它们大多数时候处于休眠状态。
+
+km-um实现通信的方式有很多，可以去看看MSDN上的**Device Input and Output Control**文档，但该方式很容易被发现。另一个流行的通信方式是通过套接字[KSCOCKET](https://github.com/wbenny/KSOCKET),套接字的问题在于速度慢。
+
+开发驱动程序建议使用visual studio,并安装c++套件，同时请勾选spectre-mitigated，最后还需要安装windows driver kit.可以在MSDN上查看**Download the Windows Driver Kit**文档。最后提一点，可以使用github上的**kdmapper**进行驱动程序的签名。
+
+## 将外挂.dll动态注入游戏
+
+
+
+## 绕过游戏的反作弊系统
+
+游戏外挂的通用特点是在某个时候对游戏进程进行**内存操作**，即使是现在的硬件外挂DMA也是如此。而游戏的反作弊系统的工作原理是阻止外挂程序对游戏的内存访问。
+
+### DLL INTERNAL CHEAT
+
+ESP外部外挂是在电脑屏幕上根据对应的逻辑绘制新的透明窗口画布。而DLL内部外挂是直接加载到游戏的进程中，具有完整的内存访问权限，同时需要**DLL注入器**将DLL文件注入到游戏的内存空间。
+
+游戏的反作弊系统检测该外挂的最简单的方式是**EnumProcessModules**遍历属于游戏的已加载模块列表，如果找到不应该存在的模块，就表示该模块已经被篡改。当然，还可以通过windows hook住**LoadLibraryA**以阻止所有注入。
+
+即使游戏阻止了所有的DLL注入，程序员也可以手动映射模拟windows的LoadLibraryA函数，这样我们可以选择不将我们的DLL放入已加载的模块列表中，这就绕过了LoadLibraryA hook。
+
+### EXTERNALS CHEAT
+
+对于ESP外部外挂，从我们自己的进程中访问游戏的内存将打开一个句柄**OpenProcess**，一旦拿到了这个句柄，就可以使用win32编程访问内存**ReadProcessMemory**、**WriteProcessMemory**。用户模式下反作弊系统无法检测到ReadProcessMemory和WriteProcessMemory，但反作弊系统可以通过**OpenProcess**阻止你获取句柄。解决方案是[劫持另一个进程对游戏的合法句柄](https://github.com/Apxaey/Handle-Hijacking-Anti-Cheat-Bypass)并使用该句柄执行内存操作。但只不适用于内核级别的反作弊系统，内核级有更多的权限，反作弊检测作弊者是通过windows hook api函数在游戏中的使用。
+
+### KERNEL CHEAT
+
+内核级别的反作弊是将大部分的注意力放在了监控整个程序的驱动程序，它完全阻止我们在用户模式下使用的所有技术，通过OB寄存器回调在系统对象上注册回调**ObRegisterCallbacks**，这会向驱动程序发送正在发生的对象管理器事件，它们可以检查是否是他们的游戏然后剥夺读写权限，因此opening handles对于内核级保护的游戏来说是无效的。解决方案是编写自己的驱动程序进入内核绕过防作弊系统进行作弊。
+
+### DMA CHEAT
+
+DMA硬件外挂至今都没有反作弊解决方案。这种外挂不是利用操作系统进行作弊，而是利用操作系统运行的硬件DMA(Direct Memory Access)。这类外挂需要您买一个DMA设备，然后还需要一台单独的PC来运行作弊程序。通过把DMA设备插入到PC的PCie，这可以允许你读取写入运行宿主机的内存。如果还是有点懵逼，可以参考一下**内存采集卡的工作原理**。
 
 ## 参考资料
 
 - [Guided Hacking](https://www.youtube.com/@GuidedHacking/videos)
 - [Github Osiris](https://github.com/danielkrupinski/Osiris)
+- [Windows核心编程 第五版]()
 
 # CS2外挂编写
 
-- [基址Offset](https://github.com/frk1/hazedumper) 
-- [基址Offset社区](https://www.unknowncheats.me/forum/counterstrike-global-offensive/169351-haze-dumper-json-config-based-offset-dumper.html) 
+- [Offset(已废弃)](https://github.com/frk1/hazedumper) 
+- [Offset(推荐)](https://github.com/a2x/cs2-dumper/tree/main) 
+- [unknowncheats社区](https://www.unknowncheats.me/forum/counterstrike-global-offensive/169351-haze-dumper-json-config-based-offset-dumper.html) 
 
 笔者编写的CS2游戏外挂已开源，采用ImGui+Directx11绘制，代码已托管在[Github](https://github.com/yinleiCoder/cs2-cheat-cpp)上，欢迎Star!

@@ -3,7 +3,6 @@
 import { animate, motion, useMotionValue, useScroll, useTransform } from 'framer-motion'
 import { v4 as uuidv4 } from 'uuid'
 import StackCard from '@/components/card/stackCard'
-import Line from '@/components/line'
 import { News } from '@/types/news'
 import { useEffect, useRef } from 'react'
 import { dateDiff } from '@/utils/date'
@@ -96,7 +95,6 @@ export default function NewsPage() {
           {rounded}
         </motion.span>
       </div>
-      <Line />
       <div ref={cardWrapper} className="w-full max-w-7xl mx-auto p-2 md:p-0">
         {news.map((newItem, index) => {
           const targetScale = 1 - (news.length - index) * 0.05

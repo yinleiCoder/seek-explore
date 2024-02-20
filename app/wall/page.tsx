@@ -22,7 +22,7 @@ export default function WallPage() {
       <ZoomParallax />
       <div className="flex flex-col p-2 my-2 md:p-0 gap-5 lg:container lg:max-w-3xl mx-auto">
         <section className="w-full">
-          <AudioPlayer track="/audios/thingsYouSaid.m4a" />
+          <AudioPlayer track="/audios/everySummertime.mp3" />
         </section>
         <section className="w-full mt-2">
           <Suspense fallback={<p>Loading...</p>}>

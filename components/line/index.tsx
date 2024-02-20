@@ -73,7 +73,7 @@ export default function Line() {
   }
 
   return (
-    <div className="hidden md:block h-[20vh] w-full box-border overflow-hidden relative bg-zinc-900 dark:bg-zinc-800">
+    <div className="hidden md:block h-[100vh] w-full box-border overflow-hidden relative bg-zinc-900 dark:bg-zinc-800">
       <section className="w-full h-full relative flex flex-col justify-center items-center">
         <div className="hidden xl:block h-[1px] w-[80%] relative mb-[20px]" ref={divContainerRef}>
           <div

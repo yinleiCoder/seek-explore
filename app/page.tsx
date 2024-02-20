@@ -10,29 +10,6 @@ const newsMarquee = [
   '[2023年1月]沉痛悼念大爷爷尹才兴，长者驾鹤西去、与世长辞',
 ]
 
-// const skills = [
-//   '你好',
-//   '😄',
-//   '我',
-//   '是',
-//   '喜欢',
-//   'C++',
-//   '的',
-//   '全栈',
-//   '软件',
-//   '工程师',
-//   '👷‍♂️',
-//   '尹磊',
-// ]
-
-// {skills.map(skill => (
-//   <Magnetic key={skill}>
-//     <span className="border rounded-md px-2 py-1 cursor-pointer duration-300 hover:bg-primary">
-//       {skill}
-//     </span>
-//   </Magnetic>
-// ))}
-
 export default function HomePage() {
   const posts = getAllPosts(['title', 'description', 'date', 'slug'])
   return (
