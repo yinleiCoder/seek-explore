@@ -77,7 +77,7 @@ export default function PostPage({
           className="text-zinc-900 rounded-lg p-2 sticky top-4 max-h-[80vh] overflow-hidden overflow-y-auto bg-primary select-none"
           open
         >
-          <summary className="text-lg font-semibold cursor-pointer">目录</summary>
+          <summary className="text-md font-semibold cursor-pointer">目录</summary>
           <ul className="mt-4 text-base font-medium">
             {toc.map(heading => {
               return (
@@ -85,7 +85,7 @@ export default function PostPage({
                   <a
                     href={`#${heading.text}`}
                     data-level={heading.level}
-                    className="data-[level=two]:pl-0 data-[level=two]:pt-2 data-[level=two]:border-t data-[level=three]:pl-6 border-solid border-zinc-900 flex items-center justify-start"
+                    className="data-[level=one]:font-bold data-[level=two]:pl-0 data-[level=two]:pt-2 data-[level=three]:pl-6 border-zinc-900 flex items-center justify-start active:bg-zinc-100"
                   >
                     {heading.level === 'three' ? (
                       <span className="flex w-1 h-1 rounded-full bg-zinc-900 mr-2">&nbsp;</span>

@@ -72,6 +72,10 @@ https://docs.pmnd.rs/react-three-fiber/api/canvas
 
 https://github.com/pmndrs/drei
 
+## Leva
+
+https://github.com/pmndrs/leva
+
 ## Gltfjsx
 
 > 一个小型命令行工具，可将 GLTF 资产转换为声明性和可重用的 react-three-fiber JSX 组件

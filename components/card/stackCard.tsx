@@ -1,8 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import Image from 'next/image'
-import { MotionValue, motion, useScroll, useTransform } from 'framer-motion'
+import { MotionValue, motion, useTransform } from 'framer-motion'
 import { randomColor } from '@/utils/color'
 
 function StackCard({

@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
 
-function NavLinks({ links }: { links: LinkProp[] }) {
+function NavLinks({ links }: { links: NavbarItem[] }) {
   const pathname = usePathname()
   return (
     <>

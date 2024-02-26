@@ -5,7 +5,7 @@ import AuthEntry from './auth'
 import NavLinks from './links'
 import Kdb from '../kdb'
 
-export const links: LinkProp[] = [
+export const links: NavbarItem[] = [
   {
     name: '随笔',
     href: '/',
@@ -24,6 +24,11 @@ export const links: LinkProp[] = [
   {
     name: '教书育人',
     href: '/watch',
+    className: '',
+  },
+  {
+    name: '巧夺天工',
+    href: '/collections',
     className: '',
   },
   {

@@ -1,3 +1,13 @@
+import dynamic from 'next/dynamic'
+
+const Scene = dynamic(() => import('@/components/scene'), {
+  ssr: false,
+})
+
 export default function NotFound() {
-  return <div>您走丢啦！UI待做</div>
+  return (
+    <main className="relative w-full h-screen">
+      <Scene />
+    </main>
+  )
 }
