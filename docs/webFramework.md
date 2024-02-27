@@ -10,7 +10,8 @@ tag: 计算机
 # Vue面试题
 
 > 原理 不等于 源码，除非你遇到一个傻逼面试官~  
-> 官网文档：https://cn.vuejs.org/guide/introduction.html
+> 官网文档：https://cn.vuejs.org/guide/introduction.html  
+> Github爆火vue面试题：https://github.com/sudheerj/vuejs-interview-questions?tab=readme-ov-file#what-is-the-best-way-to-re-render-a-component
 
 ## 为什么选择Vue3而不是Vue2
 
@@ -449,7 +450,8 @@ Vite是一个前端打包工具，Vue作者发起的项目，和webpak竞争。�
 
 # React面试题
 
-> 官网文档：https://react.dev/
+> 官网文档：https://react.dev/  
+> Github爆火react面试题：https://github.com/sudheerj/reactjs-interview-questions
 
 # 读React源码
 

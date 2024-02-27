@@ -1321,4 +1321,194 @@ a.self = a
 console.log(cloneDeep(a))
 ```
 
-## 
+## 排序与搜索
+
+### 冒泡排序
+
+- 比较所有相邻的元素，如果第一个比第二个大，就交换他们
+- 一轮下来可以保证最后一个数是最大的
+- 执行n-1轮完成排序
+
+```javascript
+
+Array.prototype.bubbleSort = function() {
+    for(let i = 0; i < this.length - 1; i++) {
+        for(let j = 0; j < this.length - 1 - i; j ++) {
+            console.log(this[j], this[j+1])
+            if(this[j] > this[j+1]) {
+                const temp = this[j]
+                this[j] = this[j+1]
+                this[j+1] = temp
+            }
+        }
+    }
+} 
+
+const arr = [5, 4, 3, 2, 1]
+arr.bubbleSort()
+```
+
+### 选择排序
+
+- 找到数组中的最小值，选中它并将其放置在第一位
+- 接着找到第二小值，选中它并将其放置在第二位
+- 执行n-1轮
+
+```javascript
+Array.prototype.selectionSort = function() {
+   for(let i = 0; i < this.length - 1; i++) {
+        let indexMin = i
+        for(let j = i; j < this.length; j++) {
+                if(this[j] < this[indexMin]) {
+                    indexMin = j
+                }
+        }
+        if(indexMin !== i) {
+            const temp = this[i]
+            this[i] = this[indexMin]
+            this[indexMin] = temp
+        }
+   }
+} 
+
+const arr = [5, 4, 3, 2, 1]
+arr.selectionSort()
+```
+
+### 插入排序
+
+- 从第二个数往前比
+- 比它大就往后排
+- 类推进行到最后一个数
+
+```javascript
+Array.prototype.insertionSort = function() {
+   for(let i = 1; i < this.length; i++) {
+        const temp = this[i]
+        let j = i
+        while(j > 0) {
+            if(this[j-i] > temp) {
+                this[j] = this[j-i]
+            } else {
+                break
+            }
+            j--
+        }
+        this[j] = temp
+   }
+} 
+
+const arr = [5, 4, 3, 2, 1]
+arr.insertionSort()
+```
+
+### 归并排序
+
+- 分：把数组劈成两半，再递归对子数组进行分，直到分成各个单独的数
+- 合：把两个数合并为有序数组，在对有序数组进行合并，直到全部子数组合并为一个完整数组
+
+```javascript
+Array.prototype.mergeSort = function() {
+    const rec = (arr) => {
+        if(arr.length === 1) return arr
+        const mid = Math.floor(arr.length / 2)
+        const left = arr.slice(0, mid)
+        const right = arr.slice(mid, arr.length)
+        const orderLeft = rec(left)
+        const orderRight = rec(right)
+        const res = []
+        while(orderLeft.length || orderRight.length) {
+            if(orderLeft.length && orderRight.length) {
+                res.push(orderLeft[0] < orderRight[0] ? orderLeft.shift() : orderRight.shift())
+            } else if(orderLeft.length) {
+                res.push(orderLeft.shift())
+            } else if(orderRight.length) {
+                res.push(orderRight.shift())
+            }
+        }
+        return res
+    }
+    const res = rec(this)
+    res.forEach((n, i) => this[i] = n)
+} 
+
+const arr = [5, 4, 3, 2, 1]
+arr.mergeSort()
+```
+
+### 快速排序
+
+- 分区：从数组中任意选一个基准，所有比基准小的元素放在基准前面，比基准大的元素放在基准后面
+- 递归：递归地对基准前后的子数组进行分区
+
+```javascript
+Array.prototype.qucikSort = function() {
+    const rec = () => {
+        if(arr.length === 1) return arr 
+        const left = []
+        const right = []
+        const mid = arr[0]
+        for(let i = 1; i < arr.length; i++){     
+            if(arr[i] < mid) {
+                left.push(arr[i])
+            } else {
+                right.push(arr[i])
+            }
+        }
+        return [...rec(left), mid, ...rec(right)]
+    }
+    const res = rec(this)
+    res.forEach((n, i) => this[i] = n)
+} 
+
+const arr = [5, 4, 3, 2, 1]
+arr.qucikSort()
+```
+
+### 顺序搜索
+
+- 遍历数组
+- 找到和目标相等的元素就返回它的下表
+- 遍历结束，如果没有搜索到目标值就返回-1
+
+```javascript
+Array.prototype.sequentialSearch = function(target) {
+    for(let i = 0; i < this.length; i++) {
+        if(this[i] === target) {
+            return i 
+        }
+    }
+    return -1
+} 
+
+const arr = [5, 4, 3, 2, 1]
+arr.sequentialSearch(3)
+```
+
+### 二分搜索
+
+- 从数组的中间元素开始，如果中间元素正好是目标值，则搜索结束
+- 如果目标值大于或者小于中间元素，则在大于或小于中间元素的那一半数组中搜索
+- 数组前提是有序数组
+
+```javascript
+Array.prototype.binarySearch = function(target) {
+    let low = 0
+    let high = this.length - 1
+    while(low <= high) {
+        const mid = Math.floor((low+high) / 2)   
+        const element = this[mid]
+        if(element < target) {
+            low = mid + 1
+        } else if(element > target) {
+            high = mid - 1
+        } else {
+            return mid 
+        }
+    }
+    return -1
+} 
+
+const arr = [1, 2, 3, 4, 5]
+arr.binarySearch(3)
+```
