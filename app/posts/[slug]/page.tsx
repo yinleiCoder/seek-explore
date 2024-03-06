@@ -5,8 +5,8 @@ import Comment from '@/components/comment'
 import Markdown from '@/components/markdown'
 import { getPostBySlug, getPostSlugs } from '@/lib/post'
 import { dateFormat } from '@/utils/date'
-import './index.css'
 import { Suspense } from 'react'
+import './index.css'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 120 // 每两分钟重新验证数据(生产阶段)
@@ -37,7 +37,7 @@ export default function PostPage({
   const { post, toc } = getPostBySlug(slug, ['title', 'description', 'date', 'tag', 'content'])
   return (
     <main className="grid p-2 md:p-0 grid-cols-12 container mx-auto gap-y-2 xl:px-2">
-      <div className="col-start-1 col-end-13 lg:col-start-2 lg:col-end-9 flex gap-3 items-center">
+      <div className="col-start-1 col-end-13 lg:col-start-1 lg:col-end-10 xl:col-start-2 xl:col-end-9 flex gap-3 items-center">
         <Link href={'/me'}>
           <Image
             src={'/images/author.jpg'}
@@ -56,18 +56,18 @@ export default function PostPage({
           </div>
         </div>
       </div>
-      <div className="col-start-1 col-end-13 lg:col-start-2 lg:col-end-9 flex flex-col items-start gap-1">
+      <div className="col-start-1 col-end-13 lg:col-start-1 lg:col-end-10 xl:col-start-2 xl:col-end-9 flex flex-col items-start gap-1">
         <h1 className="text-xl lg:text-2xl font-bold hover:underline">{post.title}</h1>
         <p className="text-gray-600 dark:text-gray-300">{post.description}</p>
         <div className="h-[1px] border  w-full rounded"></div>
       </div>
-      <div className="col-start-1 col-end-13 md:col-start-1 md:col-end-12 lg:col-start-2 lg:col-end-9 hidden md:block">
+      <div className="col-start-1 col-end-13 md:col-start-1 md:col-end-12 lg:col-start-1 lg:col-end-10 xl:col-start-2 xl:col-end-9 hidden md:block">
         <TTSAudioPlayer markdownText={post.content ?? ''} />
       </div>
-      <article className="prose prose-sm md:prose-base dark:prose-invert prose-a:no-underline hover:prose-a:underline prose-a:font-medium prose-img:rounded-lg prose-img:object-cover prose-video:aspect-video prose-a:after:content-[''] prose-strong:text-red-600 prose-table:border prose-thread:!rounded-md prose-thead:bg-primary hover:prose-tr:bg-primary/75 dark:hover:prose-tr:bg-primary/75 dark:prose-thead:bg-zinc-800 prose-thead:rounded-md dark:prose-th:text-white prose-img:mx-auto prose-blockquote:bg-[#CDFADB] prose-blockquote:border-primary prose-blockquote:not-italic prose-blockquote:px-2 prose-blockquote:py-1 prose-blockquote:rounded-r-lg dark:prose-blockquote:text-black prose-li:marker:text-primary hover:prose-a:text-zinc-600 dark:hover:prose-a:text-gray-400 max-w-none col-start-1 col-end-13 lg:col-start-2 lg:col-end-9 relative">
+      <article className="prose prose-sm md:prose-base dark:prose-invert prose-a:no-underline hover:prose-a:underline prose-a:font-medium prose-img:rounded-lg prose-img:object-cover prose-video:aspect-video prose-a:after:content-[''] prose-strong:text-red-600 prose-table:border prose-thread:!rounded-md prose-thead:bg-primary hover:prose-tr:bg-primary/75 dark:hover:prose-tr:bg-primary/75 dark:prose-thead:bg-zinc-800 prose-thead:rounded-md dark:prose-th:text-white prose-img:mx-auto prose-blockquote:bg-[#CDFADB] prose-blockquote:border-primary prose-blockquote:not-italic prose-blockquote:px-2 prose-blockquote:py-1 prose-blockquote:rounded-r-lg dark:prose-blockquote:text-black prose-li:marker:text-primary hover:prose-a:text-zinc-600 dark:hover:prose-a:text-gray-400 max-w-none col-start-1 col-end-13 lg:col-start-1 lg:col-end-10 xl:col-start-2 xl:col-end-9 relative">
         <Markdown>{post.content ?? ''}</Markdown>
       </article>
-      <div className="col-start-1 col-end-13 md:col-start-2 md:col-end-12 lg:col-start-4 lg:col-end-10">
+      <div className="col-start-1 col-end-13 md:col-start-2 md:col-end-12 lg:col-start-1 lg:col-end-10 xl:col-start-2 xl:col-end-9">
         <Suspense fallback={<p>Loading...</p>}>
           <Comment />
         </Suspense>
